@@ -1,0 +1,37 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        accueil:
+            uri_prefix: /images/accueil
+            upload_destination: '%kernel.project_dir%/public/images/accueil'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        cavalier:
+            uri_prefix: /images/cavalier
+            upload_destination: '%kernel.project_dir%/public/images/cavalier'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+        cheval:
+            uri_prefix: /images/cheval
+            upload_destination: '%kernel.project_dir%/public/images/cheval'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+        user:
+            uri_prefix: /images/user
+            upload_destination: '%kernel.project_dir%/public/images/user'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+        lieu:
+            uri_prefix: /images/lieu
+            upload_destination: '%kernel.project_dir%/public/images/lieu'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+        evenement:
+            uri_prefix: /images/evenement
+            upload_destination: '%kernel.project_dir%/public/images/evenement'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+        ballade:
+            uri_prefix: /images/ballade
+            upload_destination: '%kernel.project_dir%/public/images/ballade'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
