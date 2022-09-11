@@ -1,0 +1,45 @@
+{% extends 'base.html-back.twig' %}
+
+
+{% block title %}Evenement index{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_admin_evenement_new') }}" class="btn btn-dark">Nouveau</a>
+    <h1>Evenement</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Interne</th>
+                <th>Externe</th>
+                <th>DateDebut</th>
+                <th>DateFin</th>
+                <th>Texte</th>
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+            <tr>
+                <td>{{ evenement.id }}</td>
+                <td>{{ evenement.interne }}</td>
+                <td>{{ evenement.externe }}</td>
+                <td>{{ evenement.dateDebut ? evenement.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ evenement.dateFin ? evenement.dateFin|date('Y-m-d') : '' }}</td>
+                <td>{{ evenement.texte }}</td>
+                <td class="text-end">
+                    <a href="{{ path('app_admin_evenement_show', {'id': evenement.id}) }}" class="btn btn-primary">Afficher</a>
+                    <a href="{{ path('app_admin_evenement_edit', {'id': evenement.id}) }}"class="btn btn-success">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun Evenement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

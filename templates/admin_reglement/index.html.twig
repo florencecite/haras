@@ -1,0 +1,36 @@
+{% extends 'base.html-back.twig' %}
+
+{% block title %}Reglement index{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_admin_reglement_new') }}" class="btn btn-dark">Nouveau</a>
+    <h1>Reglement</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Texte</th>
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reglement in reglements %}
+            <tr>
+                <td>{{ reglement.id }}</td>
+                <td>{{ reglement.texte }}</td>
+                <td class="text-end">
+                    <a href="{{ path('app_admin_reglement_show', {'id': reglement.id}) }}" class="btn btn-primary">Afficher</a>
+                    <a href="{{ path('app_admin_reglement_edit', {'id': reglement.id}) }}"class="btn btn-success mt-2">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">aucun réglement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

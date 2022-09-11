@@ -1,0 +1,14 @@
+{% extends 'base.html-back.twig' %}
+
+{% block title %}Modifier Accueil{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_admin_accueil_index') }}" class="btn btn-dark">Retour à la liste</a>
+    <h1>Modifier Accueil</h1>
+
+
+
+    {{ include('admin_accueil/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+
+    {{ include('admin_accueil/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html-back.twig' %}
+
+{% block title %}Ballade {% endblock %}
+
+{% block body %}
+
+<a href="{{ path('app_admin_ballade_new') }}" class="btn btn-dark">Nouveau</a>
+
+    <h1>Ballade </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Duree</th>
+                <th>Description</th>
+                <th>Niveau</th>
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ballade in ballades %}
+            <tr>
+                <td>{{ ballade.id }}</td>
+                <td>{{ ballade.nom }}</td>
+                <td>{{ ballade.duree }}</td>
+                <td>{{ ballade.description }}</td>
+                <td>{{ ballade.niveau }}</td>
+                <td class="text-end" >
+                <a href="{{ path('app_admin_ballade_show', {'id': ballade.id}) }}" class="btn btn-primary">Afficher</a>
+                <a href="{{ path('app_admin_ballade_edit', {'id': ballade.id}) }}" class="btn btn-success">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucune Ballade</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

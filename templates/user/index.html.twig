@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_user', {'id': user.id}) }}" class="btn">Nouveau</a>
+
+<h1>Espace Membre</h1>
+
+
+<table>
+<tr><td>Nom</td><td>{{ user.nom }}</td></tr>
+<tr><td>Prenom</td><td>{{ user.prenom }}</td></tr>
+{% for cheval in user.cheval %} 
+<tr><td>Cheval</td><td>{{ cheval.nom }}</td></tr>
+{% else %}
+<tr><td>Cheval</td><td>  </td></tr>
+{% endfor %} 
+</table>
+<a href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
+
+{% endblock %}

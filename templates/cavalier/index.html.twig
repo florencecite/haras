@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CavalierController!{% endblock %}
+
+{% block body %}
+
+<h1>Cavalier</h1>
+<table>
+{% for cavalier in cavaliers %}
+<tr>
+<td>{{ cavalier.nom }} {{ cavalier.prenom }}</td>
+<td><img src="{{ asset('images/cavalier/' ~ cavalier.imageName) }}" alt="" class="img-fluid"></td>
+<td>{% for cheval in cavalier.chevaux %}
+<img src="{{ asset('images/cheval/' ~ cheval.imageName) }}" alt="" class="img-fluid"></td>
+{% else %}
+Aucun cheval
+{% endfor %} </td>
+</tr>
+{% else %}
+Aucun cavalier
+{% endfor %} 
+</table>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html-back.twig' %}
+
+
+{% block title %}Image index{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_admin_image_new') }}" class="btn btn-dark">Nouveau</a>
+    <h1>Image</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ImageName</th>
+                <th>ImageFile</th>
+                <th>UpdatedAt</th>
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for image in images %}
+            <tr>
+                <td>{{ image.id }}</td>
+                <td>{{ image.imageName }}</td>
+                <td>{{ image.imageFile }}</td>
+                <td>{{ image.updatedAt ? image.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td><img src="{{ asset('images/image/' ~ image.imageName) }}" alt="" class="img-fluid"></td>
+                <td class="text-end">
+                    <a href="{{ path('app_admin_image_show', {'id': image.id}) }}"class="btn btn-primary">Afficher</a>
+                    <a href="{{ path('app_admin_image_edit', {'id': image.id}) }}" class="btn btn-success">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune Image</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

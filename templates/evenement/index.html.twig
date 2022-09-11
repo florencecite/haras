@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EvenementController!{% endblock %}
+    
+{% block body %}
+{% for evenement in evenements %}
+{% autoescape false %}
+{{ evenement.texte }}
+{# {{evenement.imageName}} #}
+{% endautoescape %}
+{% else %}
+        Aucun èvenement
+{% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html-back.twig' %}
+
+{% block title %}Message{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_admin_message_new') }}" class="btn btn-dark">Nouveau</a>
+    <h1>Message</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descriptif</th>
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for message in messages %}
+            <tr>
+                <td>{{ message.id }}</td>
+                <td>{{ message.descriptif }}</td>
+                <td class="text-end">
+                    <a href="{{ path('app_admin_message_show', {'id': message.id}) }}"class="btn btn-primary">Afficher</a>
+                    <a href="{{ path('app_admin_message_edit', {'id': message.id}) }}"class="btn btn-success">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucun Message</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html-back.twig' %}
+{% block title %}EvenementSante{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_admin_evenement_sante_index') }}"class="btn btn-primary">Retour à la liste</a>
+<a href="{{ path('app_admin_evenement_sante_edit', {'id': evenement_sante.id}) }}"class="btn btn-success">Modifier</a>
+
+    <h1>EvenementSante</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ evenement_sante.id }}</td>
+            </tr>
+            <tr>
+                <th>Soin</th>
+                <td>{{ evenement_sante.soin }}</td>
+            </tr>
+            <tr>
+                <th>Date_entree</th>
+                <td>{{ evenement_sante.dateEntree ? evenement_sante.dateEntree|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_fin</th>
+                <td>{{ evenement_sante.dateFin ? evenement_sante.dateFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Hospitalisation</th>
+                <td>{{ evenement_sante.hospitalisation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    {{ include('admin_evenement_sante/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html-back.twig' %}
+
+{% block title %}Cavalier{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_admin_cavalier_new') }}" class="btn btn-dark">Nouveau</a>
+    <h1>Cavalier</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>ImageName</th> 
+                <th>Mail</th>
+                <th>UpdatedAt</th>
+                <th>Niveau</th>
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cavalier in cavaliers %}
+            <tr>
+                <td>{{ cavalier.id }}</td>
+                <td>{{ cavalier.nom }}</td>
+                <td>{{ cavalier.prenom }}</td>
+                <td>
+                {% if cavalier.imageName is not null %} 
+                <a href="{{ asset('images/cavalier/' ~ cavalier.imageName) }}" data-lightbox="{{cavalier.imageName}}" data-title="{{cavalier.imageName}}">NNN {{cavalier.imageName}}</a>
+                <img src="{{ asset('images/cavalier/' ~ cavalier.imageName) }}" alt="" class="img-fluid">
+                {% else %}
+                N/A
+                {% endif %}
+                </td>
+                <td>{{ cavalier.mail }}</td>
+                <td>{{ cavalier.updatedAt ? cavalier.updatedAt|date('d-m-Y H:i:s') : '' }}</td>
+                <td>{{ cavalier.niveau }}</td>
+                <td class="text-end">
+                    <a href="{{ path('app_admin_cavalier_show', {'id': cavalier.id}) }}"class="btn btn-dark">Afficher</a>
+                    <a href="{{ path('app_admin_cavalier_edit', {'id': cavalier.id}) }}"class="btn btn-success ms-2">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucun Cavalier</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

@@ -1,0 +1,7 @@
+
+
+<form method="post" action="{{ path('app_admin_cavalier_delete', {'id': cavalier.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cavalier.id) }}">
+    <button class="btn btn-danger">Supprimer</button>
+</form>
+{# <i class="align middle" data-feather="trash-2"></i> #}

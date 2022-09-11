@@ -1,0 +1,42 @@
+{% extends 'base.html-back.twig' %}
+
+{% block title %}EvenementSante index{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_admin_evenement_sante_new') }}" class="btn btn-dark">Nouveau</a>
+    <h1>EvenementSante</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Soin</th>
+                <th>Date_entree</th>
+                <th>Date_fin</th>
+                <th>Hospitalisation</th>
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evenement_sante in evenement_santes %}
+            <tr>
+                <td>{{ evenement_sante.id }}</td>
+                <td>{{ evenement_sante.soin }}</td>
+                <td>{{ evenement_sante.dateEntree ? evenement_sante.dateEntree|date('Y-m-d') : '' }}</td>
+                <td>{{ evenement_sante.dateFin ? evenement_sante.dateFin|date('Y-m-d') : '' }}</td>
+                <td>{{ evenement_sante.hospitalisation }}</td>
+                <td class= "text-end">
+                    <a href="{{ path('app_admin_evenement_sante_show', {'id': evenement_sante.id}) }}" class="btn btn-primary">Afficher</a>
+                    <a href="{{ path('app_admin_evenement_sante_edit', {'id': evenement_sante.id}) }}" class="btn btn-success">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun evenement santé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

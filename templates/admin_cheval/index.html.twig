@@ -1,0 +1,50 @@
+{% extends 'base.html-back.twig' %}
+
+{% block title %}Cheval {% endblock %}
+
+{% block body %}
+<a href="{{ path('app_admin_cheval_new') }}" class="btn btn-dark">Nouveau</a>
+    <h1>Cheval</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Lieu</th>
+                <th>Alimentation</th>
+                <th>Veto</th>
+                <th>ImageName</th>
+                <th>UpdatedAt</th>
+                <th class="text-end">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cheval in chevals %}
+            <tr>
+                <td>{{ cheval.id }}</td>
+                <td>{{ cheval.nom }}</td>
+                <td>{{ cheval.lieu }}</td>
+                <td>{{ cheval.alimentation }}</td>
+                <td>{{ cheval.veto }}</td>
+                <td>
+                <a href="{{ asset('images/cheval/' ~ cheval.imageName) }}" data-lightbox="{{cheval.imageName}}">
+                <img src="{{ asset('images/cheval/' ~ cheval.imageName) }}" alt="" class="img-list" ></td>
+                </a>
+                <td>{{ cheval.updatedAt ? cheval.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td></td>
+                <td class="text-end"> 
+                <a href="{{ path('app_admin_cheval_show', {'id': cheval.id}) }}" class="btn btn-dark">Afficher</a>
+                <a href="{{ path('app_admin_cheval_edit', {'id': cheval.id}) }}"class="btn btn-success ms-2">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucun Cheval</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

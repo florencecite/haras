@@ -1,0 +1,40 @@
+{% extends 'base.html-back.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_admin_accueil_new') }}" class="btn btn-dark">Nouveau</a>
+    <h1>Accueil</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>ImageName</th>
+                <th>UpdatedAt</th>
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for accueil in accueils %}
+            <tr>
+                <td>{{ accueil.id }}</td>
+                <td>{{ accueil.titre }}</td>
+                <td>{{ accueil.imageName }}</td>
+                <td>{{ accueil.updatedAt ? accueil.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td class="text-end">
+                    <a href="{{ path('app_admin_accueil_show', {'id': accueil.id}) }}" class="btn btn-primary">Afficher</a>
+                    <a href="{{ path('app_admin_accueil_edit', {'id': accueil.id}) }}" class="btn btn-success">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun Accueil</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

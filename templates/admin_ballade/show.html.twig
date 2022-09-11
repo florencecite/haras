@@ -1,0 +1,38 @@
+{% extends 'base.html-back.twig' %}
+
+{% block title %}Ballade{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_admin_ballade_index') }}" class="btn btn-primary">Retour à la liste</a>
+<a href="{{ path('app_admin_ballade_edit', {'id': ballade.id}) }}" class="btn btn-success">Modifier</a>
+    <h1>Ballade</h1>
+
+<table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ballade.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ ballade.nom }}</td>
+            </tr>
+            <tr>
+                <th>Duree</th>
+                <td>{{ ballade.duree }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ ballade.description }}</td>
+            </tr>
+            <tr>
+                <th>Niveau</th>
+                <td>{{ ballade.niveau }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+
+    {{ include('admin_ballade/_delete_form.html.twig') }} 
+{% endblock %}
