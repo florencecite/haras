@@ -1,0 +1,53 @@
+/* body{
+    background:url(../images/swirl_pattern.webp);
+} */
+html, body {
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+    overflow-y:hidden;
+ }
+ .scrolltable {
+    overflow-y: scroll;
+    position:absolute;
+    bottom: 58px;
+    margin-bottom:0;
+ }
+.container-fluid {
+display: flex;
+flex-direction: column;
+justify-content:flex-end;
+align-items: baseline;
+color: blueviolet;
+font-size: medium;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.footer {
+    bottom:0;
+    margin-bottom:0;
+    position:absolute;
+}
+
+.intro {
+    text-align: center;
+    color:black;
+}
+.logout {
+    text-align: end;
+    color : green;
+}
+.imageAcc {
+    min-width: 100%;
+    width: 100%;
+/*    position:absolute;
+    bottom: 58px;
+    margin-bottom:0;*/
+}
+
+.reglement {
+    border: thick double black;;
+    border-radius: 20px;
+}
