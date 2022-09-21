@@ -29,6 +29,14 @@
                 <th>Niveau</th>
                 <td>{{ ballade.niveau }}</td>
             </tr>
+            <th>Images</th>
+            <td>
+					{% if ballade.imageName is defined and ballade.imageName is not null %}
+						<img src="{{asset ('images/ballade/' ~ ballade.imageName)}}" alt="" class="img-fluid">
+					{% else %}
+						N/A
+					{% endif %}
+				</td>
         </tbody>
     </table>
 

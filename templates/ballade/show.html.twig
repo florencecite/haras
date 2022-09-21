@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ballade{% endblock %}
+
+{% block body %}
+
+    <h1>Ballade</h1>
+    <table class="table table-striped">
+		<tr>
+{# <td><img src="{{ asset('images/ballade/' ~ ballade.imageName) }}" alt="" class="img-fluid"></td> #}
+<td>
+				<table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ballade.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ ballade.nom }}</td>
+            </tr>
+            <tr>
+                <th>Duree</th>
+                <td>{{ ballade.duree }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ ballade.description }}</td>
+            </tr>
+            <tr>
+                <th>Niveau</th>
+                <td>{{ ballade.niveau }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

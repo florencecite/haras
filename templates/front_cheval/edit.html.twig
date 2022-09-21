@@ -3,11 +3,68 @@
 {% block title %}Modifier{% endblock %}
 
 {% block body %}
-<a href="{{ path('app_front_cheval_index', {'person_id': user.id}) }}" class="btn btn-dark">Retour à la liste</a>       
+<div class="d-flex justify-content-between align-items-center my-4">
+<div><a href="{{ path('app_front_cheval_index') }}" class="btn btn-dark ">Retour à la liste</a></div>
+
+{{ include('front_cheval/_delete_form.html.twig') }}   
+</div>
+
+    
     <h1>Modifier</h1>
 
     
     
     {{ include('front_cheval/_form.html.twig', {'button_label': 'Update'}) }}
-    {{ include('front_cheval/_delete_form.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+<script>
+{# AJOUT DE SOINS  #}
+const addFormToCollection = (e) => {
+  const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+
+  const item = document.createElement('li');
+
+  item.innerHTML = collectionHolder
+    .dataset
+    .prototype
+    .replace(
+      /__name__/g,
+      collectionHolder.dataset.index
+    );
+    addTagFormDeleteLink(item);
+  collectionHolder.appendChild(item);
+
+  collectionHolder.dataset.index++;
+};
+
+
+
+document
+  .querySelectorAll('.add_item_link')
+  .forEach(btn => {
+      btn.addEventListener("click", addFormToCollection)
+  });
+
+{# SUPPRESSION DE SOINS #}
+
+const addTagFormDeleteLink = (item) => {
+    const removeFormButton = document.createElement('button');
+    removeFormButton.classList.add("btn","btn-danger");
+    removeFormButton.innerText = 'Supprimer le soin';
+
+    item.append(removeFormButton);
+
+    removeFormButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        // remove the li for the tag form
+        item.remove();
+    });
+}
+document
+    .querySelectorAll('ul.soins li')
+    .forEach((soin) => {
+        addTagFormDeleteLink(soin)
+    })
+</script>
 {% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cavalier
+{% endblock %}
+
+{% block body %}
+	{# <a href="{{ path('app_admin_cavalier_index') }}" class="btn btn-primary">Retour à la liste</a>
+			<a href="{{ path('app_admin_cavalier_edit', {'id': cavalier.id}) }}" class="btn btn-success">Modifier</a> #}
+
+	<h1>Cavalier</h1>
+
+	<table class="table table-striped">
+		<tr>		
+		<td><img src="{{ asset('images/cavalier/' ~ cavalier.imageName) }}" alt="" class="img-fluid"></td>
+
+			<td>
+				<table class="table table-striped">
+					<tbody>
+						<tr>
+							<th>Nom</th>
+							<td>{{ cavalier.nom }}
+								{{ cavalier.prenom }}</td>
+						</tr>
+						<tr>
+							<th>Mail</th>
+							<td>{{ cavalier.mail }}</td>
+						</tr>
+
+						{% for cheval in cavalier.chevaux %}
+							<tr>
+								<th>Cheval</th>
+								<td><img src="{{ asset('images/cheval/' ~ cheval.imageName) }}" alt="" class="img-fluid"></td>
+							</tr>
+						{% else %}
+							<tr>
+								<th>Cheval</th>
+								<td>Aucun Cheval</td>
+							</tr>
+						{% endfor %}
+						<tr>
+							<th>Niveau</th>
+							<td>{{ cavalier.niveau }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</table>
+{% endblock %}

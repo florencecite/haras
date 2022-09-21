@@ -3,7 +3,7 @@
 {% block title %}Cheval index{% endblock %}
 
 {% block body %}
-<a href="{{ path('app_front_cheval_new', {'person_id': person_id}) }}" class="btn btn-dark">Nouveau</a>
+<a href="{{ path('app_front_cheval_new') }}" class="btn btn-dark">Nouveau</a>
 
     <h1>Cheval</h1>
 
@@ -31,8 +31,8 @@
                 <td>{{ cheval.imageName }}</td>
                 <td>{{ cheval.updatedAt ? cheval.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_front_cheval_show', {'id': cheval.id, 'person_id': person_id} ) }}">Afficher</a>
-                    <a href="{{ path('app_front_cheval_edit', {'id': cheval.id, 'person_id': person_id} ) }}">Modifier</a>
+                    <a href="{{ path('app_front_cheval_show', {'id': cheval.id} ) }}">Afficher</a>
+                    <a href="{{ path('app_front_cheval_edit', {'id': cheval.id} ) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

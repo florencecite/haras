@@ -3,10 +3,11 @@
 namespace App\DataFixtures;
 
 use App\Entity\Cavalier;
-use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class CavalierFixtures extends Fixture
+class CavalierFixtures extends Fixture implements DependentFixtureInterface
 {
 
 // ====================================================== //
@@ -25,6 +26,7 @@ class CavalierFixtures extends Fixture
         $cavalier->setPrenom('Florence');
         $cavalier->setMail("florence@florence.com");
         $cavalier->setNiveau("confirmé");
+        $cavalier->setUser($this->getReference(UserFixtures::FLORENCE));
         $manager->persist($cavalier);
 
         $cavalier = new Cavalier();
@@ -32,6 +34,7 @@ class CavalierFixtures extends Fixture
         $cavalier->setPrenom('Martine');
         $cavalier->setMail("martine@martine.com");
         $cavalier->setNiveau("confirmé");
+        $cavalier->setUser($this->getReference(UserFixtures::FLORENCE));
         $manager->persist($cavalier);
 
         $cavalier = new Cavalier();
@@ -39,10 +42,17 @@ class CavalierFixtures extends Fixture
         $cavalier->setPrenom('Daniel');
         $cavalier->setMail("daniel@daniel.com");
         $cavalier->setNiveau("confirmé");
+        $cavalier->setUser($this->getReference(UserFixtures::FLORENCE));
         $manager->persist($cavalier);
 
 
 
         $manager->flush();
+    }
+    public function getDependencies()
+    {
+        return [
+            UserFixtures::class,
+        ];
     }
 }

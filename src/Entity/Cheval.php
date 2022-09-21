@@ -56,7 +56,6 @@ class Cheval
      */
     private $updatedAt;
 
-
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
@@ -77,6 +76,11 @@ class Cheval
      */
     private $user;
 
+    /**
+     * @ORM\OneToMany(targetEntity=EvenementSante::class, mappedBy="cheval", orphanRemoval=true)
+     */
+    private $evenementSante;
+
     // ====================================================== //
     // ===================== CONTRUCTEUR ==================== //
     // ====================================================== //
@@ -84,6 +88,7 @@ class Cheval
     public function __construct()
     {
         $this->cavaliers = new ArrayCollection();
+        $this->evenementSante = new ArrayCollection();
     }
 
     // ====================================================== //
@@ -231,6 +236,36 @@ class Cheval
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EvenementSante>
+     */
+    public function getEvenementSante(): Collection
+    {
+        return $this->evenementSante;
+    }
+
+    public function addEvenementSante(EvenementSante $evenementSante): self
+    {
+        if (!$this->evenementSante->contains($evenementSante)) {
+            $this->evenementSante[] = $evenementSante;
+            $evenementSante->setCheval($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvenementSante(EvenementSante $evenementSante): self
+    {
+        if ($this->evenementSante->removeElement($evenementSante)) {
+            // set the owning side to null (unless already changed)
+            if ($evenementSante->getCheval() === $this) {
+                $evenementSante->setCheval(null);
+            }
+        }
 
         return $this;
     }

@@ -26,7 +26,9 @@ class UserFrontType extends AbstractType
 /*            ->add('cheval', TextType::class, ['label'=>'Cheval', 'required'=>true])*/
             ->add('plainpassword', PasswordType::class,['label' =>'Mot de Passe',
             'required'=> false,
-            'mapped'=> false]);
+            'mapped'=> false])
+            ->add('avatar', AvatarType::class)
+            ;
         
 }
 

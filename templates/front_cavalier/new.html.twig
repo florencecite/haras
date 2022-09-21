@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau{% endblock %}
+
+{% block body %}
+
+<a href="{{ path('app_front_cavalier_index', {'person_id': person_id}) }}" class="btn btn-dark">Retour à la liste</a>   
+
+    <h1> Nouveau</h1>
+
+    
+
+    {{ include('front_cavalier/_form.html.twig') }}
+{% endblock %}

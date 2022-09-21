@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>Type</th>
                 <th>Descriptif</th>
+                <th>Image</th>
                 <th class="text-end">actions</th>
             </tr>
         </thead>
@@ -19,7 +20,17 @@
             <tr>
                 <td>{{ service.id }}</td>
                 <td>{{ service.type }}</td>
-                <td>{{ service.descriptif }}</td>
+                <td>{{ service.descriptif|raw }}</td>
+                <td>
+						{% if service.imageName is defined and service.imageName is not null %}
+                        <a href="{{ asset ('images/service/' ~ service.imageName)}}" data-lightbox="image-{{ loop.index0 }}" data-title="{{ service.type}}">
+
+							<img src="{{ asset('images/service/'~service.imageName)}}" alt="" class="img-list">
+                        </a>
+						{% else %}
+							N/A
+						{% endif %}
+					</td>
                 <td class="text-end">
     <a href="{{ path('app_admin_service_show', {'id': service.id}) }}" class="btn btn-primary">Afficher</a>
     <a href="{{ path('app_admin_service_edit', {'id': service.id}) }}" class="btn btn-success">Modifier</a>     
@@ -27,7 +38,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">aucun service</td>
+                <td colspan="5">aucun service</td>
             </tr>
         {% endfor %}
         </tbody>

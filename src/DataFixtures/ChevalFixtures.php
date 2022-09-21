@@ -12,7 +12,7 @@ class ChevalFixtures extends Fixture
 // ====================================================== //
 // ===================== PROPRIETES ===================== //
 // ====================================================== //
-
+public const PURSDAY = "pursday";
 // ====================================================== //
 // ======================= METHODE ====================== //
 // ====================================================== //
@@ -24,7 +24,10 @@ class ChevalFixtures extends Fixture
         $cheval->setLieu('Pre-abri');
         $cheval->setAlimentation('rien');
         $cheval->setVeto('Dr Proust');
+        $cheval->setUser($this->getReference(UserFixtures::FLORENCE));
         $manager->persist($cheval);
+        $this->setReference(self::PURSDAY, $cheval);
+
 
 
 

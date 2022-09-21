@@ -1,34 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ChevalController!{% endblock %}
+{% block title %}Chevaux
+{% endblock %}
 
 {% block body %}
-{# FT: Boucler sur les reglements : passer la variable reglements dans le rendering #}
-<table class="container-fluid scrolltable">
-<thead>
-<th>Nom</th>
-<th>Lieu</th>
-<th>Alimentation</th>
-<th>Vetérinaire</th>
-<th>Photo</th>
-<th>Propriétaire</th>
-</thead>
-<tbody>
-{% for cheval in chevaux %}
-{# Ne pas escaper le HTML = on veut garder le contenu saisi par l'admin: DANGEREUX, si l'admin fait n'importe quoi  #}{% autoescape false %}
-{# on affiche le texte #}
-<tr><td>{{ cheval.nom }}</td>
-<td>{{ cheval.lieu }}</td>
-<td>{{ cheval.alimentation}}</td>
-<td>{{ cheval.veto}}</td>
-<td><img src="{{ asset('images/cheval/' ~ cheval.imageName) }}" alt="" class="img-fluid"></td>
-<td>{{ cheval.user}}</td>
-</tr>
-{# fin de l'auto escape #} {% endautoescape %}
-{% else %} {# aucun cheval #}
-<tr><td>Aucun cheval</td></tr>
-{% endfor %} {# Fin de la boucle #}
-</tbody>
-</table>
+	<table class="table table-striped">
+		<tr>
+			<th>Cheval</th>
+		</tr>
+		{% for cheval in chevaux %}
+			<tr>
+				<td>
+					<a href="{{ path('app_cheval_show', {'id': cheval.id}) }}" class="btn btn-dark">{{ cheval.nom }}</a>
+				</td>
+			</tr>
+		{% else %}
+			{# aucun cheval #}
+			<tr>
+				<td>Aucun cheval</td>
+			</tr>
+		{% endfor %}
+		{# Fin de la boucle #}
+	</table>
 
 {% endblock %}

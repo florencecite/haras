@@ -12,10 +12,10 @@
             <tr>
                 <th>Id</th>
                 <th>Interne</th>
-                <th>Externe</th>
                 <th>DateDebut</th>
                 <th>DateFin</th>
                 <th>Texte</th>
+                <th>ImageName</th>
                 <th class="text-end">Actions</th>
             </tr>
         </thead>
@@ -24,10 +24,20 @@
             <tr>
                 <td>{{ evenement.id }}</td>
                 <td>{{ evenement.interne }}</td>
-                <td>{{ evenement.externe }}</td>
                 <td>{{ evenement.dateDebut ? evenement.dateDebut|date('Y-m-d') : '' }}</td>
                 <td>{{ evenement.dateFin ? evenement.dateFin|date('Y-m-d') : '' }}</td>
-                <td>{{ evenement.texte }}</td>
+                <td>{{ evenement.texte|raw}}</td>
+                <td>
+						{% if evenement.imageName is defined and evenement.imageName is not null %}
+                        <a href="{{ asset ('images/evenement/' ~ evenement.imageName)}}" data-lightbox="image-{{ loop.index0 }}" data-title="{{ evenement.interne}}">
+
+							<img src="{{ asset('images/evenement/'~evenement.imageName)}}" alt="" class="img-list">
+                        </a>
+						{% else %}
+							N/A
+						{% endif %}
+					</td>
+
                 <td class="text-end">
                     <a href="{{ path('app_admin_evenement_show', {'id': evenement.id}) }}" class="btn btn-primary">Afficher</a>
                     <a href="{{ path('app_admin_evenement_edit', {'id': evenement.id}) }}"class="btn btn-success">Modifier</a>

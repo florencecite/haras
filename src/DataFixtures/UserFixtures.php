@@ -6,9 +6,8 @@ use App\Entity\User;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 
-class UserFixtures extends Fixture implements FixtureGroupInterface
+class UserFixtures extends Fixture
 
 // ====================================================== //
 // ===================== PROPRIETES ===================== //
@@ -20,6 +19,7 @@ class UserFixtures extends Fixture implements FixtureGroupInterface
 // ====================================================== //
 
 {
+    public const FLORENCE = 'florence';
     private $encoder;
 
     public function __construct (UserPasswordHasherInterface $userPasswordHasherInterface)
@@ -36,14 +36,23 @@ class UserFixtures extends Fixture implements FixtureGroupInterface
         $user->setEmail('florence.cite@gmail.com');
         $user->setRoles(["ROLES_USER", "ROLE_ADMIN"]);
         $user->setPassword($this->encoder->hashPassword($user,"Pass"));
-
+        // $user->addCheval($this->getReference(ChevalFixtures::PURSDAY));
         $manager->persist($user);
+        $this->addReference(self::FLORENCE, $user );;
+
+        $user = new User();
+        $user->setNom ('Un');
+        $user->setPrenom('Marcel');
+        $user->setTelephone('0601010101');
+        $user->setEmail('un@gmail.com');
+        $user->setRoles(["ROLES_USER"]);
+        $user->setPassword($this->encoder->hashPassword($user,"Pass"));
+        $manager->persist($user);
+
+
+
 
         $manager->flush();
     } 
 
-public static function getGroups(): array
-{
-        return ['groupe1'];
-}
 }

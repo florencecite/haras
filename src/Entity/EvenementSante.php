@@ -43,6 +43,12 @@ class EvenementSante
      * @ORM\Column(type="string", length=255)
      */
     private $hospitalisation;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Cheval::class, inversedBy="evenementSante")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $cheval;
 // ====================================================== //
 // ===================== CONTRUCTEUR ==================== //
 // ====================================================== //
@@ -104,6 +110,18 @@ class EvenementSante
     public function setHospitalisation(string $hospitalisation): self
     {
         $this->hospitalisation = $hospitalisation;
+
+        return $this;
+    }
+
+    public function getCheval(): ?Cheval
+    {
+        return $this->cheval;
+    }
+
+    public function setCheval(?Cheval $cheval): self
+    {
+        $this->cheval = $cheval;
 
         return $this;
     }

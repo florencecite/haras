@@ -14,10 +14,14 @@ class EvenementController extends AbstractController
      */
     public function index(EvenementRepository $evenementRepository): Response
     {
+        $evenementInternes = $evenementRepository->findBy(['interne'=>true]);
+        $evenementExternes =  $evenementRepository->findBy(['interne'=>false]);
         return $this->render('evenement/index.html.twig', [
             'controller_name' => 'EvenementController',
             // FT: ajouter la liste des evenements
-            'evenements' => $evenementRepository->findAll(),
+            // 'evenements' => $evenementRepository->findAll(),
+            "evenementInternes"=>$evenementInternes,
+            "evenementExternes"=>$evenementExternes,
         ]);
     }
 }

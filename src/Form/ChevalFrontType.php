@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Cheval;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -17,7 +19,15 @@ class ChevalFrontType extends AbstractType
             ->add('lieu')
             ->add('alimentation')
             ->add('veto')
-            ->add('imageName');
+            ->add('imageFile', FileType::class)
+            ->add('evenementSante', CollectionType::class,[
+                'entry_type' => EvenementSanteType::class,
+                'entry_options' => ['label' => false],
+                'allow_add' => true,
+                'by_reference' => false,
+                'allow_delete' => true,
+            ])
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

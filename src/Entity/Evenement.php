@@ -24,18 +24,9 @@ class Evenement
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="boolean", length=255, nullable=true)
      */
     private $interne;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $externe;
-
-   
-
-
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -51,6 +42,27 @@ class Evenement
      * @ORM\Column(type="datetime")
      */
     private $dateFin;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageName;
+
+    /**
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * 
+     * @Vich\UploadableField(mapping="evenement", fileNameProperty="imageName")
+     * 
+     * @var File|null
+     */
+    private $imageFile;
+
+
 // ====================================================== //
 // ===================== CONTRUCTEUR ==================== //
 // ====================================================== //
@@ -68,33 +80,17 @@ class Evenement
         return $this->id;
     }
 
-    public function getInterne(): ?string
+    public function getInterne(): ?bool
     {
         return $this->interne;
     }
 
-    public function setInterne(?string $interne): self
+    public function setInterne(?bool $interne): self
     {
         $this->interne = $interne;
 
         return $this;
     }
-
-    public function getExterne(): ?string
-    {
-        return $this->externe;
-    }
-
-    public function setExterne(?string $externe): self
-    {
-        $this->externe = $externe;
-
-        return $this;
-    }
-
-    
-
-    
 
     public function getTexte(): ?string
     {
@@ -128,6 +124,56 @@ class Evenement
     public function setDateFin(\DateTimeInterface $dateFin): self
     {
         $this->dateFin = $dateFin;
+
+        return $this;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function setImageName(?string $imageName): self
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+    
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

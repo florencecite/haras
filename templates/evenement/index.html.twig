@@ -3,14 +3,33 @@
 {% block title %}Hello EvenementController!{% endblock %}
     
 {% block body %}
-{% for evenement in evenements %}
-{% autoescape false %}
-{{ evenement.texte }}
-{# {{evenement.imageName}} #}
-{% endautoescape %}
-{% else %}
-        Aucun èvenement
-{% endfor %}
 
+<h1>Evenement</h1>
+
+<table><tr><td>         
+<table class="table table-striped">
+    <tr><td colspan=2><h4>Evenement Externe</h4></td></tr>
+    <tr><th>Description</th><th>Image</th></tr> 
+    {% for evenement in evenementExternes %}
+        <tr>
+        <td>{{ evenement.texte }}</td><td>{{ evenement.imageName}}</td>
+        </tr>  
+    {% else %}
+    <tr><td colspan=2>Aucun Evenement</td></tr> 
+    {% endfor %}
+</table>
+
+<table class="table table-striped">
+<tr><td colspan=2><h4>Evenement Interne</h4></td></tr>
+<tr><td>Description</td><td>Image</td></tr> 
+    {% for evenement in evenementInternes %}
+    <tr><td>{{ evenement.texte }}</td><td>{{ evenement.imageName}}</td></tr> 
+    {% else %}
+    <tr><td colspan=2>Aucun Evenement</td></tr> 
+    {% endfor %}
+</table>
+</td></tr></table>
 
 {% endblock %}
+
+

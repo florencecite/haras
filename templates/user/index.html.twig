@@ -3,20 +3,54 @@
 {% block title %}Hello UserController!{% endblock %}
 
 {% block body %}
-<a href="{{ path('app_user', {'id': user.id}) }}" class="btn">Nouveau</a>
-
+<div class="p-3">
 <h1>Espace Membre</h1>
+</div>
 
+<div class="container-fluid">
+{# <a href="{{ path('app_user', {'id': user.id}) }}" class="btn">Nouveau</a> #}
 
-<table>
-<tr><td>Nom</td><td>{{ user.nom }}</td></tr>
-<tr><td>Prenom</td><td>{{ user.prenom }}</td></tr>
+{# INFORMATIONS #}
+<table class="table table-striped">
+<tr>
+<td class="td-gauche" colspan="2"><h4>Mes informations</h4></td>
+<td class="text-end"><a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn btn-dark">Modifier</a></td>
+</tr>
+<tr><td class="td-gauche">Nom</td><td class="text-end">{{ user.nom }}</td></tr>
+<tr><td class="td-gauche">Prenom</td><td class="text-end">{{ user.prenom }}</td></tr>
+<tr><td class="td-gauche">No Telephone</td><td class="text-end">{{ user.telephone}}</td></tr> 
+<tr><td class="td-gauche">mail</td><td class="text-end">{{ user.email}}</td></tr>
+</table>
+
+<div class="py-3 text-center"><hr class="w-50 mx-auto"></div>
+
+{# CHEVAUX #}
+<table class="table table-striped">
+<tr>
+<td class="td-gauche" colspan="2"><h4>Mes chevaux</h4></td>
+<td class="text-end"><a href="{{ path('app_front_cheval_index') }}"  class="btn btn-dark">Gérer les chevaux</a></td></tr>
 {% for cheval in user.cheval %} 
-<tr><td>Cheval</td><td>{{ cheval.nom }}</td></tr>
+<tr><td class="td-gauche">Cheval</td><td class="text-end">{{ cheval.nom }}</td></tr>
 {% else %}
-<tr><td>Cheval</td><td>  </td></tr>
+<tr><tdclass="text-end" colspan="2">Vous n'avez aucun cheval.</tdclass=></tr>
 {% endfor %} 
 </table>
-<a href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
 
+<div class="py-3 text-center"><hr class="w-50 mx-auto"></div>
+
+{# CAVALIER #}
+<table class="table table-striped">
+<tr class=>
+<td class="td-gauche" colspan="2"><h4>Mes cavaliers</h4></td>
+<td class="text-end"><a href="{{ path('app_front_cavalier_index') }}"  class="btn btn-dark">Gérer les cavaliers</a></td></tr>
+{% for cavalier in user.cavalier %}
+<tr><td class="td-gauche">Cavalier</td><td class="text-end">{{ cavalier.nom }} {{ cavalier.prenom }}</td></tr>
+{% else %}
+<tr><td class="text-end" colspan="2">Vous n'avez aucun cavalier.</td></tr>
+{% endfor %} 
+</table>
+
+</div>
 {% endblock %}
+
+

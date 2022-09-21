@@ -30,7 +30,9 @@ class UserType extends AbstractType
             'mapped'=>false])
             ->add('plainpassword', TextType::class,['label' =>'Mot de Passe',
             'required'=> false,
-            'mapped'=> false]);
+            'mapped'=> false])
+            ->add('avatar', AvatarType::class)
+            ;
         
 }
 

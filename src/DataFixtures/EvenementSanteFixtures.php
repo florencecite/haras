@@ -21,10 +21,11 @@ class EvenementSanteFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $evenementSante = new EvenementSante();
-        $evenementSante->setSoin("");
+        $evenementSante->setSoin("dermite estivale");
         $evenementSante->setDateEntree(new DateTime());
         $evenementSante->setDateFin(new DateTime());
-        $evenementSante->setHospitalisation("");
+        $evenementSante->setHospitalisation("non");
+        $evenementSante->setCheval($this->getReference(ChevalFixtures::PURSDAY));
         $manager->persist ($evenementSante);
 
         $manager->flush();

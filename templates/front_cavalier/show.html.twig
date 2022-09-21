@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cavalier{% endblock %}
+
+{% block body %}
+    <h1>Cavalier</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cavalier.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ cavalier.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ cavalier.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ cavalier.mail }}</td>
+            </tr>
+            <tr>
+                <th>ImageName</th>
+                <td>{{ cavalier.imageName }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ cavalier.updatedAt ? cavalier.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Niveau</th>
+                <td>{{ cavalier.niveau }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_front_cavalier_edit', {'person_id':cavalier.user, 'id': cavalier.id}) }}">Modifier</a>
+    {{ include('front_cavalier/_delete_form.html.twig') }}
+{% endblock %}

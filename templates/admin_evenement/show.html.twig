@@ -19,10 +19,6 @@
                 <td>{{ evenement.interne }}</td>
             </tr>
             <tr>
-                <th>Externe</th>
-                <td>{{ evenement.externe }}</td>
-            </tr>
-            <tr>
                 <th>DateDebut</th>
                 <td>{{ evenement.dateDebut ? evenement.dateDebut|date('Y-m-d') : '' }}</td>
             </tr>
@@ -34,6 +30,15 @@
                 <th>Texte</th>
                 <td>{{ evenement.texte }}</td>
             </tr>
+            
+            <th>Images</th>
+            <td>
+					{% if evenement.imageName is defined and evenement.imageName is not null %}
+						<img src="{{asset ('images/evenement/' ~ evenement.imageName)}}" alt="" class="img-fluid">
+					{% else %}
+						N/A
+					{% endif %}
+				</td>
         </tbody>
     </table>
 

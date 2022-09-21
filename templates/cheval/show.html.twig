@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cheval
+{% endblock %}
+
+{% block body %}
+
+	<h1>Cheval</h1>
+	<table class="table table-striped">
+		<tr>                          
+		<td><img src="{{ asset('images/cheval/' ~ cheval.imageName) }}" alt="" class="img-fluid"></td>
+		<td>                       
+		<table class="table table-striped">
+			<tbody>
+			<tr>
+					<th>Proprietaire</th>
+					<td>{{ cheval.user }}</td>
+				</tr>
+				<tr>
+					<th>Nom</th>
+					<td>{{ cheval.nom }}</td>
+				</tr>
+				<tr>
+					<th>Lieu</th>
+					<td>{{ cheval.lieu }}</td>
+				</tr>
+				<tr>
+					<th>Alimentation</th>
+					<td>{{ cheval.alimentation }}</td>
+				</tr>
+				<tr>
+					<th>Veto</th>
+					<td>{{ cheval.veto }}</td>
+				</tr>
+			</tbody>
+		</table>
+		</table>
+	{% endblock %}

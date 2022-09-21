@@ -27,8 +27,9 @@
                 <td>{{ cavalier.prenom }}</td>
                 <td>
                 {% if cavalier.imageName is not null %} 
-                <a href="{{ asset('images/cavalier/' ~ cavalier.imageName) }}" data-lightbox="{{cavalier.imageName}}" data-title="{{cavalier.imageName}}">NNN {{cavalier.imageName}}</a>
-                <img src="{{ asset('images/cavalier/' ~ cavalier.imageName) }}" alt="" class="img-fluid">
+                <a href="{{ asset('images/cavalier/' ~ cavalier.imageName) }}" data-lightbox="{{cavalier.imageName}}">
+                <img src="{{ asset('images/cavalier/' ~ cavalier.imageName) }}" alt="" class="img-list">
+                </a>
                 {% else %}
                 N/A
                 {% endif %}

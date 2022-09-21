@@ -16,6 +16,8 @@
                 <th>Duree</th>
                 <th>Description</th>
                 <th>Niveau</th>
+                <th>Image</th>
+
                 <th class="text-end">Actions</th>
             </tr>
         </thead>
@@ -25,8 +27,19 @@
                 <td>{{ ballade.id }}</td>
                 <td>{{ ballade.nom }}</td>
                 <td>{{ ballade.duree }}</td>
-                <td>{{ ballade.description }}</td>
+                <td>{{ ballade.description|raw }}</td>
                 <td>{{ ballade.niveau }}</td>
+                <td>
+						{% if ballade.imageName is defined and ballade.imageName is not null %}
+                        <a href="{{ asset ('images/ballade/' ~ ballade.imageName)}}" data-lightbox="image-{{ loop.index0 }}" data-title="{{ ballade.nom}}">
+
+							<img src="{{ asset('images/ballade/'~ballade.imageName)}}" alt="" class="img-list">
+                        </a>
+						{% else %}
+							N/A
+						{% endif %}
+					</td>
+
                 <td class="text-end" >
                 <a href="{{ path('app_admin_ballade_show', {'id': ballade.id}) }}" class="btn btn-primary">Afficher</a>
                 <a href="{{ path('app_admin_ballade_edit', {'id': ballade.id}) }}" class="btn btn-success">Modifier</a>

@@ -20,6 +20,15 @@
                 <th>Descriptif</th>
                 <td>{{ service.descriptif }}</td>
             </tr>
+
+            <th>Images</th>
+            <td>
+					{% if service.imageName is defined and service.imageName is not null %}
+						<img src="{{asset ('images/service/' ~ service.imageName)}}" alt="" class="img-fluid">
+					{% else %}
+						N/A
+					{% endif %}
+				</td>
         </tbody>
     </table>
 

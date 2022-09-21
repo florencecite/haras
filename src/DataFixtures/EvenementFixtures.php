@@ -22,13 +22,11 @@ class EvenementFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $evenement = new Evenement();
-        $evenement->setInterne("oui");
-        $evenement->setExterne("non");
+        $evenement->setInterne(true);
         $evenement->setTexte("Sortie plein air");
         $evenement->setDateDebut(new DateTime());
         $evenement->setDateFin(new DateTime());
         $manager->persist($evenement);
-
         $manager->flush();
     }
 }

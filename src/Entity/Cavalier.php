@@ -69,6 +69,12 @@ class Cavalier
      * @ORM\ManyToMany(targetEntity=Cheval::class, inversedBy="cavaliers")
      */
     private $chevaux;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Cavalier")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 // ====================================================== //
 // ===================== CONTRUCTEUR ==================== //
 // ====================================================== //
@@ -211,6 +217,18 @@ return $this ->cavalier_nom;
     public function removeChevaux(Cheval $chevaux): self
     {
         $this->chevaux->removeElement($chevaux);
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

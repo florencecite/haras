@@ -3,18 +3,19 @@
 {% block title %}Hello ContactController!{% endblock %}
 
 {% block body %}
-<h1>Contact :</h1>
-        <h3>Moniteur : </h3>
-        <p> Marine : 06 01 01 01 01</p>
-        <p> Manu : 07 01 01 01 01</p>
-        <br>
-        <hr>
-        <h3>Contacts Utiles :</h3>
-        <p> Samu: 15</p>
-        <p> Pompier : 17</p>
-        <p> Véto Urgence : 06 01 01 01 01</p>
-        <p> Ostéo : 06 01 01 01 01</p>
-        
-
-    
+<h1>Contacts</h1>
+<table>
+<tr><td>
+<table class="table table-striped">
+<tr><td class="td-gauche" rowspan=2><h4>Moniteurs</h4></td>
+        <td class="text-end">Manu : 06 01 01 01 01</td></tr>
+        <tr><td class="text-end">Marine : 06 01 01 01 01</td>
+</tr>
+ <tr><td class="td-gauche"><h4>Samu</h4></td><td class="text-end">15</td></tr>
+ <tr><td class="td-gauche"><h4>Pompiers</h4></td><td class="text-end">18</td></tr>
+ <tr><td class="td-gauche"><h4>Véto Urgences</h4></td><td class="text-end">06 01 01 01 01</td></tr>
+ <tr><td class="td-gauche"><h4>Ostéo</h4></td><td class="text-end">06 01 01 01 01</td></tr>
+</table>
+</td></tr>
+</table>
 {% endblock %}

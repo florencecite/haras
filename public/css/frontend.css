@@ -1,43 +1,66 @@
-/* body{
-    background:url(../images/swirl_pattern.webp);
-} */
-html, body {
-    height:100%;
-    width:100%;
-    padding:0;
-    margin:0;
-    overflow-y:hidden;
- }
- .scrolltable {
+
+.td-gauche{
+    width:20%;
+}
+.scrolltable {
     overflow-y: scroll;
     position:absolute;
     bottom: 58px;
     margin-bottom:0;
- }
-.container-fluid {
+}
+/* .container-fluid {
 display: flex;
 flex-direction: column;
 justify-content:flex-end;
 align-items: baseline;
-color: blueviolet;
+color: purple;
 font-size: medium;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
+} */
+
+.soins li{
+    padding:10px;
+    margin:10px;
+    background: rgb(229, 226, 226);
+
 }
 
-.footer {
+/* .footer {
     bottom:0;
     margin-bottom:0;
     position:absolute;
+} */
+* {
+    color: black;
+    font-family: 'Cinzel', serif;
 }
 
 .intro {
     text-align: center;
-    color:black;
+    font-size: 50px;
+}
+/*.nav-link {
+    color : greenyellow;
+    font-size: 20px;
+}*/
+.navbar {
+    --bs-navbar-padding-x: 0.5rem;
+    --bs-navbar-padding-y: 0.5rem;
+    --bs-navbar-color: greenyellow;
+    --bs-navlink-color: green;
+    --bs-navbar-hover-color: white;
+    --bs-navbar-disabled-color: gray;
+    --bs-navbar-active-color: white;
+}
+.navbar-nav {
+    --bs-nav-link-padding-x: 1rem;
+    --bs-nav-link-padding-y: 0.5rem;
 }
 .logout {
     text-align: end;
-    color : green;
+    color : greenyellow;
+    font-size: 20px;
 }
 .imageAcc {
     min-width: 100%;
@@ -50,4 +73,36 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 .reglement {
     border: thick double black;;
     border-radius: 20px;
+}
+
+.container-fluid .scrolltable{
+    display: flex;
+    justify-content: end;
+
+}
+
+.cavalier {
+    display: flex;
+    font-size: 70px;
+    justify-self: flex-start;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.nom {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    text-align: end;
+}
+
+.image{
+    display: flex;
+    justify-items: flex-start;
+    align-items: flex-start;
+}
+.cheval{
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
 }

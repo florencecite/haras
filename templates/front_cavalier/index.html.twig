@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cavalierx{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_front_cavalier_new') }}" class="btn btn-dark">Nouveau</a>
+    <h1>Cavalier</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Mail</th>
+                <th>ImageName</th>
+                <th>UpdatedAt</th>
+                <th>Niveau</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cavalier in cavaliers %}
+            <tr>
+                <td>{{ cavalier.id }}</td>
+                <td>{{ cavalier.nom }}</td>
+                <td>{{ cavalier.prenom }}</td>
+                <td>{{ cavalier.mail }}</td>
+                <td>{{ cavalier.imageName }}</td>
+                <td>{{ cavalier.updatedAt ? cavalier.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ cavalier.niveau }}</td>
+                <td>
+                    <a href="{{ path('app_front_cavalier_show', {'id': cavalier.id} ) }}">Afficher</a>
+                    <a href="{{ path('app_front_cavalier_edit', {'id': cavalier.id} ) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucun Cavalier</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+{% endblock %}
