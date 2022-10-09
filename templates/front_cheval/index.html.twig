@@ -1,38 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cheval index{% endblock %}
+{% block title %}Haras de la Cense - Gérer mes chevaux{% endblock %}
 
 {% block body %}
-<a href="{{ path('app_front_cheval_new') }}" class="btn btn-dark">Nouveau</a>
-
-    <h1>Cheval</h1>
+    <h1>Mes chevaux</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Lieu</th>
                 <th>Alimentation</th>
                 <th>Veto</th>
                 <th>ImageName</th>
-                <th>UpdatedAt</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for cheval in chevals %}
             <tr>
-                <td>{{ cheval.id }}</td>
                 <td>{{ cheval.nom }}</td>
                 <td>{{ cheval.lieu }}</td>
                 <td>{{ cheval.alimentation }}</td>
                 <td>{{ cheval.veto }}</td>
                 <td>{{ cheval.imageName }}</td>
-                <td>{{ cheval.updatedAt ? cheval.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_front_cheval_show', {'id': cheval.id} ) }}">Afficher</a>
-                    <a href="{{ path('app_front_cheval_edit', {'id': cheval.id} ) }}">Modifier</a>
+                    <a href="{{ path('app_front_cheval_edit', {'id': cheval.id} ) }}"  class="btn btn-dark">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -42,6 +35,9 @@
         {% endfor %}
         </tbody>
     </table>
+<a href="{{ path('app_front_cheval_new') }}" class="btn btn-dark">Nouveau cheval</a>
+<hr>
+<a href="{{ path('app_user') }}" class="btn btn-dark">Retour à l'espace Membre</a>
 
     
 {% endblock %}

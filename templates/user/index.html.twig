@@ -1,20 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Haras de la Cense - Mon Espace Membre{% endblock %}
 
 {% block body %}
 <div class="p-3">
-<h1>Espace Membre</h1>
+<h1>Mon Espace Membre</h1>
 </div>
 
 <div class="container-fluid">
-{# <a href="{{ path('app_user', {'id': user.id}) }}" class="btn">Nouveau</a> #}
 
 {# INFORMATIONS #}
 <table class="table table-striped">
 <tr>
 <td class="td-gauche" colspan="2"><h4>Mes informations</h4></td>
-<td class="text-end"><a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn btn-dark">Modifier</a></td>
+<td class="text-end"><a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn btn-dark">Modifier mes informations</a></td>
 </tr>
 <tr><td class="td-gauche">Nom</td><td class="text-end">{{ user.nom }}</td></tr>
 <tr><td class="td-gauche">Prenom</td><td class="text-end">{{ user.prenom }}</td></tr>
@@ -28,11 +27,11 @@
 <table class="table table-striped">
 <tr>
 <td class="td-gauche" colspan="2"><h4>Mes chevaux</h4></td>
-<td class="text-end"><a href="{{ path('app_front_cheval_index') }}"  class="btn btn-dark">Gérer les chevaux</a></td></tr>
+<td class="text-end"><a href="{{ path('app_front_cheval_index') }}"  class="btn btn-dark">Gérer mes chevaux</a></td></tr>
 {% for cheval in user.cheval %} 
 <tr><td class="td-gauche">Cheval</td><td class="text-end">{{ cheval.nom }}</td></tr>
 {% else %}
-<tr><tdclass="text-end" colspan="2">Vous n'avez aucun cheval.</tdclass=></tr>
+<tr><tdclass="text-end" colspan="2">Je n'ai aucun cheval</tdclass=></tr>
 {% endfor %} 
 </table>
 
@@ -42,11 +41,11 @@
 <table class="table table-striped">
 <tr class=>
 <td class="td-gauche" colspan="2"><h4>Mes cavaliers</h4></td>
-<td class="text-end"><a href="{{ path('app_front_cavalier_index') }}"  class="btn btn-dark">Gérer les cavaliers</a></td></tr>
+<td class="text-end"><a href="{{ path('app_front_cavalier_index') }}"  class="btn btn-dark">Gérer mes cavaliers</a></td></tr>
 {% for cavalier in user.cavalier %}
 <tr><td class="td-gauche">Cavalier</td><td class="text-end">{{ cavalier.nom }} {{ cavalier.prenom }}</td></tr>
 {% else %}
-<tr><td class="text-end" colspan="2">Vous n'avez aucun cavalier.</td></tr>
+<tr><td class="text-end" colspan="2">Je n'ai aucun cavalier</td></tr>
 {% endfor %} 
 </table>
 
