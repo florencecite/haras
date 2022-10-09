@@ -15,7 +15,9 @@
 <td class="td-gauche" colspan="2"><h4>Mes informations</h4></td>
 <td class="text-end"><a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn btn-dark">Modifier mes informations</a></td>
 </tr>
-<tr><td class="td-gauche">Nom</td><td class="text-end">{{ user.nom }}</td></tr>
+<tr><td class="td-gauche">Nom</td><td class="text-end">{{ user.nom }}</td>
+<td><img src="{{ asset('images/avatar/' ~ user.avatar.imageFile) }}"> {{user.avatar.imageFile}}</td>
+</tr>
 <tr><td class="td-gauche">Prenom</td><td class="text-end">{{ user.prenom }}</td></tr>
 <tr><td class="td-gauche">No Telephone</td><td class="text-end">{{ user.telephone}}</td></tr> 
 <tr><td class="td-gauche">mail</td><td class="text-end">{{ user.email}}</td></tr>

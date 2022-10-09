@@ -12,7 +12,7 @@
 				<table class="table table-striped">
         <tbody>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <td>{{ ballade.id }}</td>
             </tr>
             <tr>
@@ -25,7 +25,7 @@
             </tr>
             <tr>
                 <th>Description</th>
-                <td>{{ ballade.description }}</td>
+                <td>{{ ballade.description|raw }}</td>
             </tr>
             <tr>
                 <th>Niveau</th>

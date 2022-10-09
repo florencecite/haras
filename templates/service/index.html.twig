@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ServiceController!{% endblock %}
+{% block title %}Haras de la Cense - Services!{% endblock %}
 
 
 {% block body %}
-<h1>Service</h1>
+<h1>Services</h1>
 <table>
+
 <tr><td>
 <table class="table table-striped">
         <thead>
@@ -14,7 +15,7 @@
                 <th>Type</th>
                 <th>Descriptif</th>
                 <th>Image</th>
-                <th class="text-end">actions</th>
+                <th class="text-end">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -34,8 +35,8 @@
 						{% endif %}
 					</td>
                 <td class="text-end">
-    <a href="{{ path('app_admin_service_show', {'id': service.id}) }}" class="btn btn-primary">Afficher</a>
-    <a href="{{ path('app_admin_service_edit', {'id': service.id}) }}" class="btn btn-success">Modifier</a>     
+    <a href="{{ path('app_admin_service_show', {'id': service.id}) }}" class="btn btn-dark">Afficher</a>
+    {# <a href="{{ path('app_admin_service_edit', {'id': service.id}) }}" class="btn btn-dark">Modifier</a>      #}
                 </td>
             </tr>
         {% else %}
@@ -44,5 +45,6 @@
             </tr>
         {% endfor %}
         </tbody>
+
     </table>
 {% endblock %}

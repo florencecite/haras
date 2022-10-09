@@ -23,7 +23,16 @@
                 <td>{{ cheval.lieu }}</td>
                 <td>{{ cheval.alimentation }}</td>
                 <td>{{ cheval.veto }}</td>
-                <td>{{ cheval.imageName }}</td>
+                <td>
+                {# <img src={{ asset('images/cheval/' ~ cheval.imageName) }}> #}
+                {% if cheval.imageName is defined and cheval.imageName is not null %}
+                    <a href="{{ asset ('images/cheval/' ~ cheval.imageName) }}" data-lightbox="{{cheval.imageName}}">
+					<img src="{{ asset('images/cheval/'~ cheval.imageName)}}" alt="" class="img-list">
+                    </a>
+				{% else %}
+							N/A
+				{% endif %}
+                </td>
                 <td>
                     <a href="{{ path('app_front_cheval_edit', {'id': cheval.id} ) }}"  class="btn btn-dark">Modifier</a>
                 </td>
@@ -38,6 +47,7 @@
 <a href="{{ path('app_front_cheval_new') }}" class="btn btn-dark">Nouveau cheval</a>
 <hr>
 <a href="{{ path('app_user') }}" class="btn btn-dark">Retour à l'espace Membre</a>
+<hr>
 
     
 {% endblock %}
