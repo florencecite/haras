@@ -1,18 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EvenementController!{% endblock %}
+{% block title %}Haras de la Cense - Evenements{% endblock %}
     
 {% block body %}
 
-<h1>Evenement</h1>
+<h1>Evenements</h1>
 
 <table><tr><td>         
 <table class="table table-striped">
-    <tr><td colspan=2><h4>Evenement Externe</h4></td></tr>
+    <tr><td colspan=2><h4>Evenements Externes</h4></td></tr>
     <tr><th>Description</th><th>Image</th></tr> 
     {% for evenement in evenementExternes %}
         <tr>
-        <td>{{ evenement.texte }}</td><td>{{ evenement.imageName}}</td>
+        <td>{% autoescape false %}{{ evenement.texte }}{% endautoescape %}</td>
+        <td> 
+        {% if evenement.imageName is defined and evenement.imageName is not null %}
+        <a href="{{ asset('images/evenement/' ~ evenement.imageName) }}" data-lightbox="{{evenement.imageName}}">
+		<img src="{{ asset('images/evenement/'~ evenement.imageName)}}" alt="" class="img-list">
+        </a>
+		{% else %}
+			N/A		
+		{% endif %}
+        </td>
         </tr>  
     {% else %}
     <tr><td colspan=2>Aucun Evenement</td></tr> 
@@ -20,10 +29,21 @@
 </table>
 
 <table class="table table-striped">
-<tr><td colspan=2><h4>Evenement Interne</h4></td></tr>
+<tr><td colspan=2><h4>Evenements Internes</h4></td></tr>
 <tr><td>Description</td><td>Image</td></tr> 
     {% for evenement in evenementInternes %}
-    <tr><td>{{ evenement.texte }}</td><td>{{ evenement.imageName}}</td></tr> 
+        <tr>
+        <td>{% autoescape false %}{{ evenement.texte }}{% endautoescape %}</td>
+        <td> 
+        {% if evenement.imageName is defined and evenement.imageName is not null %}
+        <a href="{{ asset('images/evenement/' ~ evenement.imageName) }}" data-lightbox="{{evenement.imageName}}">
+		    <img src="{{ asset('images/evenement/'~ evenement.imageName)}}" alt="" class="img-list">
+        </a>
+		{% else %}
+			N/A		
+		{% endif %}
+        </td>
+        </tr>  
     {% else %}
     <tr><td colspan=2>Aucun Evenement</td></tr> 
     {% endfor %}
