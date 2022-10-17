@@ -74,10 +74,10 @@
 								<a class="nav-link" href="{{ path('app_service')}}">Services</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="{{ path('app_message')}}">Co-Voiturage</a>
+								<a class="nav-link" href="{{ path('app_covoit')}}">Co-Voiturage</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="{{ path('app_message')}}">Forum</a>
+								<a class="nav-link" href="{{ path('workingforum_forum')}}">Forum</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="{{ path('app_evenement')}}">Evenements</a>
@@ -98,6 +98,7 @@
 	</div>
 	<div class="container-fluid">
 	{% block body %}{% endblock %}
+	{% block forum %}{% endblock %}
 	</div>	
 	<div class= "container-fluid footer px-0" >
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid">

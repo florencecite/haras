@@ -1,0 +1,3 @@
+yosimitso_working_forum:
+    resource: "@YosimitsoWorkingForumBundle/Resources/config/routing.yml"
+    prefix:   /forum

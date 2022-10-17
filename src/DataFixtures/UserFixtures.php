@@ -34,6 +34,7 @@ class UserFixtures extends Fixture
         $user->setPrenom('Florence');
         $user->setTelephone('0601010101');
         $user->setEmail('florence.cite@gmail.com');
+        $user->setUserName('florence');
         $user->setRoles(["ROLES_USER", "ROLE_ADMIN"]);
         $user->setPassword($this->encoder->hashPassword($user,"Pass"));
         // $user->addCheval($this->getReference(ChevalFixtures::PURSDAY));
@@ -45,6 +46,7 @@ class UserFixtures extends Fixture
         $user->setPrenom('Marcel');
         $user->setTelephone('0601010101');
         $user->setEmail('un@gmail.com');
+        $user->setUserName('un');
         $user->setRoles(["ROLES_USER"]);
         $user->setPassword($this->encoder->hashPassword($user,"Pass"));
         $manager->persist($user);

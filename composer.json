@@ -45,7 +45,8 @@
         "symfonycasts/verify-email-bundle": "^1.11",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
-        "vich/uploader-bundle": "^1.19"
+        "vich/uploader-bundle": "^1.19",
+        "yosimitso/workingforumbundle": "^4.0"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",

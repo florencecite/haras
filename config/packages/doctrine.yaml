@@ -15,6 +15,8 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+        resolve_target_entities:
+            Yosimitso\WorkingForumBundle\Entity\UserInterface: App\Entity\User
 
 when@test:
     doctrine:
