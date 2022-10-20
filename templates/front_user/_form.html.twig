@@ -1,4 +1,16 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+
+{{ form_start(form) }}
+    <h2>Les infos</h2>
+    {{ form_row(form.nom) }}
+    {{ form_row(form.prenom) }}
+    {{ form_row(form.app_front_cheval_delete) }}
+    {{ form_row(form.imageFile) }} 
+
+    
+    
+    </ul>
+    <button class="btn btn-dark">{{ button_label|default('Sauvergarde') }}</button>
 {{ form_end(form) }}

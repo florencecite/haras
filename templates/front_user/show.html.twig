@@ -1,45 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}Propriétaires{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
+    <h1>Propriétaires</h1>
 
     <table class="table">
         <tbody>
-            <tr>
+            {# <tr>
                 <th>LastReplyDate</th>
                 <td>{{ user.lastReplyDate ? user.lastReplyDate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
                 <th>Id</th>
                 <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ user.email }}</td>
-            </tr>
-            <tr>
+            </tr> #}
+            {# <tr>
                 <th>Roles</th>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-            </tr>
-            <tr>
+            </tr> #}
+            {# <tr>
                 <th>Password</th>
                 <td>{{ user.password }}</td>
-            </tr>
+            </tr> #}
             <tr>
                 <th>Nom</th>
                 <td>{{ user.nom }}</td>
             </tr>
             <tr>
+            
                 <th>Prenom</th>
                 <td>{{ user.prenom }}</td>
             </tr>
             <tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>    
                 <th>Telephone</th>
                 <td>{{ user.telephone }}</td>
             </tr>
-            <tr>
+            {# <tr>
                 <th>IsVerified</th>
                 <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
             </tr>
@@ -50,13 +52,13 @@
             <tr>
                 <th>Username</th>
                 <td>{{ user.username }}</td>
-            </tr>
+            </tr> #}
             <tr>
                 <th>AvatarUrl</th>
                 <td>{{ user.avatarUrl }}</td>
             </tr>
             <tr>
-                <th>NbPost</th>
+                {# <th>NbPost</th>
                 <td>{{ user.nbPost }}</td>
             </tr>
             <tr>
@@ -66,13 +68,12 @@
             <tr>
                 <th>EmailAddress</th>
                 <td>{{ user.emailAddress }}</td>
-            </tr>
+            </tr> #}
         </tbody>
     </table>
 
-    <a href="{{ path('app_front_user_index') }}">back to list</a>
-
-    <a href="{{ path('app_front_user_edit', {'id': user.id}) }}">edit</a>
+    <a href="{{ path('app_front_user_index') }}">Retour à la liste</a>
+    <a href="{{ path('app_front_user_edit', {'id': user.id}) }}">Modifier</a>
 
     {{ include('front_user/_delete_form.html.twig') }}
 {% endblock %}

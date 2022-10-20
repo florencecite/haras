@@ -7,7 +7,7 @@
     {{ form_row(form.imageFile) }} 
     <h2>Ses soins</h2>
     <button type="button" class="add_item_link btn btn-dark my-3" data-collection-holder-class="soins">Ajouter un soin</button>
-   
+
     <ul class="soins list-unstyled"
     data-index="{{ form.evenementSante|length > 0 ? form.evenementSante|last.vars.name + 1 : 0 }}"
     data-prototype="{{ form_widget(form.evenementSante.vars.prototype)|e('html_attr') }}">
