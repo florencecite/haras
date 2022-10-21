@@ -1,53 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}La liste des propriétaires{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
+    <h1>la listes des propriétaires</h1>
 
     <table class="table">
         <thead>
             <tr>
-                {# <th>LastReplyDate</th> #}
                 <th>Id</th>
-                {# <th>Roles</th>
-                <th>Password</th> #}
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Email</th>
                 <th>Telephone</th>
-                {# <th>IsVerified</th>
-                <th>UpdatedAt</th>
-                <th>Username</th>
-                <th>AvatarUrl</th>
-                <th>NbPost</th>
-                <th>Banned</th>
-                <th>EmailAddress</th> #}
-                <th> Actions</th>
-            </tr>
+                {# <th>Username</th>
+            </tr> #}
         </thead>
         <tbody>
         {% for user in users %}
             <tr>
-                {# <td>{{ user.lastReplyDate ? user.lastReplyDate|date('Y-m-d H:i:s') : '' }}</td> #}
-                <td>{{ user.id }}</td>
                 {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
-                {# <td>{{ user.password }}</td> #}
                 <td>{{ user.nom }}</td>
                 <td>{{ user.prenom }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.telephone }}</td>
-                {# <td>{{ user.isVerified ? 'Yes' : 'No' }}</td> #}
-                {# <td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '' }}</td> #}
-                {# <td>{{ user.username }}</td>
-                <td>{{ user.avatarUrl }}</td>
-                <td>{{ user.nbPost }}</td>
-                <td>{{ user.banned ? 'Yes' : 'No' }}</td>
-                <td>{{ user.emailAddress }}</td> #}
-                <td>
-                    <a href="{{ path('app_front_user_show', {'id': user.id}) }}" class="btn btn-dark">Affichez</a>
-                    <a href="{{ path('app_front_user_edit', {'id': user.id}) }}" class="btn btn-dark">Modifier</a>
-                </td>
+                <td>{{ user.username }}</td>
             </tr>
         {% else %}
             <tr>
@@ -56,6 +33,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_front_user_new') }}">Nouveau Propriétaires</a>
 {% endblock %}

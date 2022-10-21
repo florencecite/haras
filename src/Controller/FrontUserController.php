@@ -13,7 +13,10 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/front/user')]
 class FrontUserController extends AbstractController
 {
-    #[Route('/', name: 'app_front_user_index', methods: ['GET'])]
+    /**
+     * @Route("/index", name="app_front_user_index", methods={"GET"})
+     */
+    // #[Route('/', name: 'app_front_user_index', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
         return $this->render('front_user/index.html.twig', [
