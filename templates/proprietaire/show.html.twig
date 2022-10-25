@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Propriétaires{% endblock %}
+
+{% block body %}
+    <h1>Propriétaires</h1>
+
+    <table class="table table-striped">
+    <tr>                          
+		<td><img  src="{{ asset('images/user/' ~ user.avatarUrl) }}" alt="" class="img-fluid"></td>
+		<td>                       
+		<table class="table table-striped">
+        <tbody>
+            
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.nom }}</td>
+            </tr>
+            <tr>
+            
+                <th>Prenom</th>
+                <td>{{ user.prenom }}</td>
+            </tr>
+            <tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>    
+                <th>Telephone</th>
+                <td>{{ user.telephone }}</td>
+            </tr>
+            
+            <tr>
+                <th>AvatarUrl</th>
+                <td>{{ user.avatarUrl }}</td>
+            </tr>
+            <tr>
+                
+        </tbody>
+    </table>
+</table>
+
+    
+{% endblock %}

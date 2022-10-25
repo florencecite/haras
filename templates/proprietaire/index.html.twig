@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Proprietaires
+{% endblock %}
+
+{% block body %}
+<div style="min-height: 100vh">
+	<table class="table table-striped">
+		<tr>
+			<th>Proprietaire</th>
+		</tr>
+		{% for proprietaire in proprietaires %}
+			<tr>
+				<td>
+					<a href="{{ path('app_proprietaire_show', {'id': proprietaire.id}) }}" class="btn btn-dark">{{ proprietaire.prenom }} {{ proprietaire.nom }}</a>
+				</td>
+			</tr>
+		{% else %}
+			{# aucun proprietaire #}
+			<tr>
+				<td>Aucun proprietaire</td>
+			</tr>
+		{% endfor %}
+		{# Fin de la boucle #}
+	</table>
+	</div>
+
+{% endblock %}
