@@ -3,12 +3,21 @@
 {% block title %}Propriétaires{% endblock %}
 
 {% block body %}
+
     <h1>Propriétaires</h1>
 
-    <table class="table table-striped">
-    <tr>                          
-		<td><img  src="{{ asset('images/user/' ~ user.avatarUrl) }}" alt="" class="img-fluid"></td>
-		<td>                       
+    <table class="table table-striped"> 
+    <tr>  
+    <td>
+        {% if user.avatarUrl is defined and user.avatarUrl is not null %}
+        <a href="{{ asset ('images/user/' ~ user.avatarUrl) }}" data-lightbox="{{user.avatarUrl}}">
+		<img src="{{ asset('images/user/'~ user.avatarUrl)}}" alt="" class="img-list">
+        </a>
+		{% else %}
+		N/A
+		{% endif %}
+    </td>
+    <td>
 		<table class="table table-striped">
         <tbody>
             
@@ -30,15 +39,10 @@
                 <th>Telephone</th>
                 <td>{{ user.telephone }}</td>
             </tr>
-            
-            <tr>
-                <th>AvatarUrl</th>
-                <td>{{ user.avatarUrl }}</td>
-            </tr>
-            <tr>
-                
         </tbody>
     </table>
+    </td>
+    </tr>
 </table>
 
     

@@ -24,7 +24,7 @@ class User  extends \Yosimitso\WorkingForumBundle\Entity\User implements UserInt
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
     protected $id;
@@ -140,7 +140,7 @@ class User  extends \Yosimitso\WorkingForumBundle\Entity\User implements UserInt
     public function setEmail(string $email): self
     {
         $this->email = $email;
-
+        $this->setUsername($email);
         return $this;
     }
 
@@ -391,5 +391,13 @@ class User  extends \Yosimitso\WorkingForumBundle\Entity\User implements UserInt
         $this->avatar = $avatar;
 
         return $this;
+    }
+    /**
+     * @return string|null
+     */
+    public function getAvatarUrl()
+    {
+        if ($this->avatarUrl ==null && $this->getAvatar()!=null) return $this->getAvatar()->getImageName();
+        return $this->avatarUrl;
     }
 }

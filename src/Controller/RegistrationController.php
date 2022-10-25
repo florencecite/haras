@@ -64,7 +64,6 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/verify/email", name="app_verify_email")
      */

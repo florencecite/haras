@@ -16,13 +16,27 @@
 <td class="text-end"><a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn btn-dark">Modifier mes informations</a></td>
 </tr>
 <tr><td class="td-gauche">Nom</td><td class="text-end">{{ user.nom }}</td>
-<td><img src="{{ asset('images/avatar/' ~ user.avatar.imageFile) }}"> {{user.avatar.imageFile}}</td>
+<td  rowspan="4">
+        {% if user.avatarUrl is defined and user.avatarUrl is not null %}
+        <a href="{{ asset ('images/user/' ~ user.avatarUrl) }}" data-lightbox="{{user.avatarUrl}}">
+		<img src="{{ asset('images/user/'~ user.avatarUrl)}}" alt="" class="img-list">
+        </a>
+		{% else %}
+		N/A
+		{% endif %}
+
+</td>
 </tr>
 <tr><td class="td-gauche">Prenom</td><td class="text-end">{{ user.prenom }}</td></tr>
 <tr><td class="td-gauche">No Telephone</td><td class="text-end">{{ user.telephone}}</td></tr> 
 <tr><td class="td-gauche">Alias</td><td class="text-end">{{ user.userName}}</td></tr> 
 </table>
-
+        {% if user.isVerified  %}
+        OK
+		{% else %}
+		<a href="{{ path('app_verify_email') }}" class="btn btn-dark">Vérifier mon email</a>
+		{% endif %}
+        
 <div class="py-3 text-center"><hr class="w-50 mx-auto"></div>
 
 {# CHEVAUX #}
