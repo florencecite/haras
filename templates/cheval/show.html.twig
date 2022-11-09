@@ -7,8 +7,13 @@
 
 	<h1>Cheval</h1>
 	<table class="table table-striped">
-		<tr>                          
-		<td><img src="{{ asset('images/cheval/' ~ cheval.imageName) }}" alt="" class="img-fluid"></td>
+		<tr> 
+<td>
+		{% if cheval is defined and cheval is not null %}
+		<a href="{{ asset ('images/cheval/' ~ cheval.imageName) }}" data-lightbox="{{cheval.imageName}}"> 
+		<img src="{{ asset('images/cheval/' ~ cheval.imageName) }}" alt="" class="img-list" > </a></td>
+		{% endif %}  
+		</td>
 		<td>                       
 		<table class="table table-striped">
 			<tbody>
