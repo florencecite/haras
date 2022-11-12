@@ -14,6 +14,7 @@ class MessageController extends AbstractController
     public function forum(): Response
     {
         // return $this->redirectToRoute('workingforum_forum');
+        /* Faire la meme chose dans un twig qui inclut une iframe */
         return $this->render('message/forum.html.twig', [
             'controller_name' => 'MessageController',
         ]);
@@ -24,7 +25,7 @@ class MessageController extends AbstractController
     public function covoiturage(): Response
     {
         //return $this->redirectToRoute('workingforum_subforum', ['forum' =>'proprietaires','subforum' =>'co-voiturage']);
-        
+        /* Faire la meme chose dans un twig qui inclut une iframe */
         return $this->render('message/covoit.html.twig', [
             'controller_name' => 'MessageController',
         ]);
