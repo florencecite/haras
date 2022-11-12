@@ -22,6 +22,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
 
 {
     public const FLORENCE = 'florence';
+    public const UN = 'un';
     private $encoder;
 
     public function __construct (UserPasswordHasherInterface $userPasswordHasherInterface)
@@ -60,10 +61,9 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($av);
         $user->setAvatar($av);
         $user->setPassword($this->encoder->hashPassword($user,"Pass"));
+        $user->addCheval($this->getReference(ChevalFixtures::DOMINO));
         $manager->persist($user);
-
-
-
+        $this->addReference(self::UN, $user );;
 
         $manager->flush();
     } 

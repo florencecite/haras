@@ -13,7 +13,8 @@ class ChevalFixtures extends Fixture  /*implements DependentFixtureInterface*/
 // ====================================================== //
 // ===================== PROPRIETES ===================== //
 // ====================================================== //
-public const PURSDAY = "pursday";
+public const PURSDAY = "Pursday";
+public const DOMINO = "Domino";
 // ====================================================== //
 // ======================= METHODE ====================== //
 // ====================================================== //
@@ -23,19 +24,19 @@ public const PURSDAY = "pursday";
         $cheval = new Cheval();
         $cheval->setNom('Pursday');
         $cheval->setLieu('Pre-abri');
-        $cheval->setAlimentation('rien');
+        $cheval->setAlimentation('Herbe');
         $cheval->setVeto('Dr Proust');
         $cheval->setImageName('C5.jpg');
-    //    $cheval->setUser($this->getReference(UserFixtures::FLORENCE));
         $manager->persist($cheval);
         $this->setReference(self::PURSDAY, $cheval);
+        $cheval = new Cheval();
+        $cheval->setNom('Domino');
+        $cheval->setLieu('Troupeau');
+        $cheval->setAlimentation('Foin');
+        $cheval->setVeto('Dr Proust');
+        $cheval->setImageName('C4.jpg');
+        $manager->persist($cheval);
+        $this->setReference(self::DOMINO, $cheval);
         $manager->flush();
     }
-    /*
-    public function getDependencies()
-    {
-        return [
-            UserFixtures::class,
-        ];
-    }*/
 }

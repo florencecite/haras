@@ -45,5 +45,51 @@
     </tr>
 </table>
 
-    
+{# CHEVAUX #}
+<div>
+		<h1 class="py-3 ps-3">Chevaux</h1>
+		<div class="d-flex flex-wrap justify-content-center">
+			{% for cheval in user.cheval %}
+				<div class="col-12 col-md-3 col-lg-2 px-3  d-flex">
+					<div class="card">
+						<img src="{{asset('images/cheval/' ~ cheval.imageName)}}"  class="card-img-top" alt="...">
+						<div class="card-body d-flex flex-wrap">
+							<h5 class="card-title text-center w-100">
+								{{cheval.nom}}</h5>
+							<a href="{{ path('app_cheval_show', {'id': cheval.id}) }}" class="btn btn-dark align-self-end mx-auto">Voir fiche</a>
+						</div>
+					</div>
+				</div>
+			{% else %}
+				{# aucun proprietaire #}
+
+				<p>Aucun cheval</p>
+
+			{% endfor %}
+			{# Fin de la boucle #}
+		</div>
+	</div>
+{# CAVALIER #}
+<div>
+		<h1 class="py-3 ps-3">Cavaliers</h1>
+		<div class="d-flex flex-wrap justify-content-center">
+
+			{% for cavalier in user.cavalier %}
+				<div class="col-12 col-md-3 col-lg-2 px-3  d-flex">
+					<div class="card">
+						<img src="{{asset('images/cavalier/' ~ cavalier.imageName)}}"  class="card-img-top" alt="...">
+						<div class="card-body d-flex flex-wrap">
+							<h5 class="card-title text-center w-100">{{cavalier.prenom}}
+								{{cavalier.nom}}</h5>
+							<a href="{{ path('app_cavalier_show', {'id': cavalier.id}) }}" class="btn btn-dark align-self-end mx-auto">Voir fiche</a>
+						</div>
+					</div>
+				</div>
+			{% else %}
+				<p>Aucun cavalier</p>
+			{% endfor %}
+			{# Fin de la boucle #}
+		</div>
+	</div>
+  
 {% endblock %}
