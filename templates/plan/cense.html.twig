@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Haras de la Cense - Le Plan de la Cense{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1 class="ptitre" >Le Haras de la Cense</h1>
+<style>
+#foret {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+  /* https://console.cloud.google.com/apis/credentials?project=floharascense AIzaSyAKyeL4db_5Wn2iCoZNuCUrALk1djKrzXA */
+}
+</style>
+<div class="example-wrapper">
+    <div id="foret">
+    </div>
+</div>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKyeL4db_5Wn2iCoZNuCUrALk1djKrzXA&callback=initMap&v=weekly"
+    defer>
+</script>
+<script>
+// Initialize and add the map
+function initMap() {
+  // La cense
+  const cense = { lat: 48.59716591194565, lng: 2.0062070404318435};
+  // H2W4+RF Rochefort-en-Yvelines 
+  // The map, centered at La Cense
+  const map = new google.maps.Map(document.getElementById("foret"), {
+    zoom: 14,
+    center: cense,
+  });
+  // The marker, positioned at Uluru
+  const marker = new google.maps.Marker({
+    position: cense,
+    map: map,
+  });
+}
+window.initMap = initMap;
+</script>
+{% endblock %}
