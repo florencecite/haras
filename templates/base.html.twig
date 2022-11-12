@@ -4,9 +4,7 @@
 		<meta charset="UTF-8">
 
 		<title>
-			{% block title %} Haras de la Cense {% endblock %}
-		
-	
+			{% block title %}Haras de la Cense{% endblock %}
 		</title>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		<link "https://bootswatch.com/5/lux/bootstrap.min.css">
@@ -20,15 +18,13 @@
 		<link rel="stylesheet" href="{{asset ('css/frontend.css')}}">
 	</head>
 	<body>
-
 			<table width="100%">
 				<tr>
 					<td>
 					<a href="{{path('app_accueil')}}">
-					<img src="{{ asset('images/evenement/Logoharascense3.jpg') }}" alt="logo haras de la cense"  height="100px" class="pb-2 ps-3 my-3">
+					<img src="{{ asset('images/evenement/Logoharascense3.jpg') }}" alt="logo haras de la cense"  class="logo pb-2 ps-3 my-3">
 					</a>
-					</td>
-				
+					</td>			
 					<td>
 						<div class="logout">
 						{% if app.user %}
@@ -37,63 +33,67 @@
 							<a href="{{path('app_login')}}" class="logout">Connexion</a>
 						{% endif %}
 						</div>
-						<h1 class="intro" class=" mt-5 pb-3">Le Site des Propriétaires du Haras de la Cense - Bretigny </h1>
-			
+						<h1 class="intro  mt-5 pb-3">Le Site des Propriétaires du Haras de la Cense - Bretigny </h1>
 					</td>
 				</tr>
 			</table>
-
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark  container-fluid px-0">
+			<nav class="navbar navbar-expand-sm navbar-dark bg-dark  container-fluid px-0">
 				<div class="container-fluid">
+					<nav class="navbar navbar-dark bg-dark">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent">
+						<span class="navbar-toggler-icon"></span>
+						</button>
+					</nav>
+					<div class="collapse" id="navbarToggleExternalContent">
+						<div class="bg-dark p-4">
+						<h4 class="text-white">Collapsed content</h4>
+						<span class="text-muted">Toggleable via the navbar brand.</span>
+						</div>
+  					</div>
 					<div class="collapse navbar-collapse" id="navbarColor01">
 						<ul class="navbar-nav me-auto">
 						{% if app.user %}
 						{% else %}
 							<li class="nav-item">
-								<a class="nav-link " style="font-size: 24px;" href="{{ path('app_register')}}">Inscription</a>
+								<a class="nav-link " href="{{ path('app_register')}}">Inscription</a>
 							</li>
 						{% endif %}
 						{% if app.user %}
 							<li class="nav-item">
-								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_user')}}">Espace-Membre</a>
+								<a class="nav-link" href="{{ path('app_user')}}">Espace-Membre</a>
 							</li>
 						{% endif %}
 						
 							<li class="nav-item">
-								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_proprietaire_index')}}">Propriétaires</a> 
+								<a class="nav-link" href="{{ path('app_proprietaire_index')}}">Propriétaires</a> 
 							</li>
 							<li class="nav-item">
-								<a class="nav-link "  style="font-size: 24px;" href="{{ path('app_cavalier')}}">Cavaliers</a>
+								<a class="nav-link " href="{{ path('app_cavalier')}}">Cavaliers</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_cheval')}}">Chevaux</a>
+								<a class="nav-link" href="{{ path('app_cheval')}}">Chevaux</a>
 							</li>
 							{% if app.user %}
 							<li class="nav-item">
-								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_ballade')}}">Ballades</a>
+								<a class="nav-link" href="{{ path('app_ballade')}}">Ballades</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_service')}}">Services</a>
+								<a class="nav-link" href="{{ path('app_service')}}">Services</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_covoit')}}">Co-voiturage</a>
+								<a class="nav-link" href="{{ path('app_covoit')}}">Co-voiturage</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" style="font-size: 24px;" href="{{ path('workingforum_forum')}}">Forum</a>
+								<a class="nav-link" href="{{ path('workingforum_forum')}}">Forum</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_evenement')}}">Evènements</a>
+								<a class="nav-link" href="{{ path('app_evenement')}}">Evènements</a>
 							</li>
 							{% endif %}
 							<li class="nav-item">
-								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_reglement')}}">Règlement</a>
+								<a class="nav-link" href="{{ path('app_reglement')}}">Règlement</a>
 							</li>
 						</ul>
-						{# <form class="d-flex">
-							<input class="form-control me-sm-2" type="text" placeholder="Search">
-							<button class="btn btn-secondary my-2 my-sm-0" type="submit">
-								Chercher</button>
-						</form> #}
 					</div>
 				</div>
 			</nav>
@@ -112,13 +112,13 @@
 						</a>
 						</li>
 						<li class="nav-item">
-						<a class="nav-link" style="font-size: 24px;" href="{{path('app_contact')}}">Contact</a>
+						<a class="nav-link" href="{{path('app_contact')}}">Contact</a>
 						</li>
 						<li class="nav-item">
-						<a class="nav-link" style="font-size: 24px;" href="#">Plan de la Cense</a>
+						<a class="nav-link" href="#">Plan de la Cense</a>
 						</li>
 						<li class="nav-item">
-						<a class="nav-link" style="font-size: 24px;" href="#">Plan de la Forêt de Rambouillet</a>
+						<a class="nav-link" href="#">Plan de la Forêt de Rambouillet</a>
 						</li>
 					</ul>
 				</div>
