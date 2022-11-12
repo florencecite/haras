@@ -3,7 +3,7 @@
 {% block title %}Haras de la Cense - Mon Espace Membre{% endblock %}
 
 {% block body %}
-<div class="p-3">
+<div class="py-3 ps-3">
 <h1>Mon Espace Membre</h1>
 </div>
 
@@ -32,7 +32,7 @@
 <tr><td class="td-gauche">Alias</td><td class="text-end">{{ user.userName}}</td></tr> 
 </table>
         {% if user.isVerified  %}
-        OK
+        
 		{% else %}
 		<a href="{{ path('app_verify_email') }}" class="btn btn-dark">Vérifier mon email</a>
 		{% endif %}

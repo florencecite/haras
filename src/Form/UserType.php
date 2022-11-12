@@ -3,10 +3,12 @@
 namespace App\Form;
 
 use App\Entity\User;
+use App\Entity\Cheval;
 use App\Form\ChevalType;
 use Symfony\Component\Form\AbstractType;
 
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Collection;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -24,7 +26,7 @@ class UserType extends AbstractType
             ->add('prenom', TextType::class, ['label'=>'Prenom', 'required'=>true])
             ->add('telephone')
             ->add('email', EmailType::class,['label'=>'Mail', 'required'=>true])
-            ->add('cheval', TextType::class,['label'=> 'Cheval', 'required'=>true])
+            ->remove('cheval', EntityType::class,['class'=>Cheval::class,'label'=> 'Cheval', 'required'=>true])
             ->add('role', ChoiceType::class,['label'=>'Rôle', 'choices'=>['Utilisateur'=> 'ROLE_USER', 'Administrateur'=>'ROLE_ADMIN',],
             'required'=>true,
             'mapped'=>false])

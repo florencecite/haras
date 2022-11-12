@@ -68,7 +68,7 @@ class User  extends \Yosimitso\WorkingForumBundle\Entity\User implements UserInt
     private $isVerified = false;
 
     /**
-     * @ORM\OneToMany(targetEntity=Cheval::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Cheval::class, mappedBy="user", cascade={"persist","remove"})
      */
     private $cheval;
 
