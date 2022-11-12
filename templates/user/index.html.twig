@@ -45,7 +45,17 @@
 <td class="td-gauche" colspan="2"><h4>Mes chevaux</h4></td>
 <td class="text-end"><a href="{{ path('app_front_cheval_index') }}"  class="btn btn-dark">Gérer mes chevaux</a></td></tr>
 {% for cheval in user.cheval %} 
-<tr><td class="td-gauche">Cheval</td><td class="text-end">{{ cheval.nom }}</td></tr>
+<tr><td class="td-gauche">{{ cheval.nom }}</td>
+	<td class="text-end">
+        {% if cheval.imageName is defined and cheval.imageName is not null %}
+        	<a href="{{ asset ('images/cheval/' ~ cheval.imageName) }}" data-lightbox="{{cheval.imageName}}">
+				<img src="{{ asset('images/cheval/'~ cheval.imageName)}}" alt="" class="img-list">
+        	</a>
+		{% else %}
+		N/A
+		{% endif %}
+	</td>
+</tr>
 {% else %}
 <tr><tdclass="text-end" colspan="2">Je n'ai aucun cheval</tdclass=></tr>
 {% endfor %} 
@@ -59,7 +69,17 @@
 <td class="td-gauche" colspan="2"><h4>Mes cavaliers</h4></td>
 <td class="text-end"><a href="{{ path('app_front_cavalier_index') }}"  class="btn btn-dark">Gérer mes cavaliers</a></td></tr>
 {% for cavalier in user.cavalier %}
-<tr><td class="td-gauche">Cavalier</td><td class="text-end">{{ cavalier.nom }} {{ cavalier.prenom }}</td></tr>
+<tr><td class="td-gauche">{{ cavalier.nom }} {{ cavalier.prenom }}</td>
+	<td class="text-end">
+        {% if cavalier.imageName is defined and cavalier.imageName is not null %}
+        	<a href="{{ asset ('images/cavalier/' ~ cavalier.imageName) }}" data-lightbox="{{cavalier.imageName}}">
+				<img src="{{ asset('images/cavalier/'~ cavalier.imageName)}}" alt="" class="img-list">
+        	</a>
+		{% else %}
+		N/A
+		{% endif %}
+	</td>
+</tr>
 {% else %}
 <tr><td class="text-end" colspan="2">Je n'ai aucun cavalier</td></tr>
 {% endfor %} 

@@ -3,11 +3,13 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
+use App\Entity\Avatar;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class UserFixtures extends Fixture
+class UserFixtures extends Fixture implements DependentFixtureInterface
 
 // ====================================================== //
 // ===================== PROPRIETES ===================== //
@@ -36,8 +38,13 @@ class UserFixtures extends Fixture
         $user->setEmail('florence.cite@gmail.com');
         $user->setUserName('florence');
         $user->setRoles(["ROLES_USER", "ROLE_ADMIN"]);
+        $av=new Avatar();
+        $av->setImageName("floflo.jpg");
+        $manager->persist($av);
+        $user->setAvatar($av);
+        $user->setIsVerified(true);
         $user->setPassword($this->encoder->hashPassword($user,"Pass"));
-        // $user->addCheval($this->getReference(ChevalFixtures::PURSDAY));
+        $user->addCheval($this->getReference(ChevalFixtures::PURSDAY));
         $manager->persist($user);
         $this->addReference(self::FLORENCE, $user );;
 
@@ -48,6 +55,10 @@ class UserFixtures extends Fixture
         $user->setEmail('un@gmail.com');
         $user->setUserName('un');
         $user->setRoles(["ROLES_USER"]);
+        $av=new Avatar();
+        $av->setImageName("homme.jpg");
+        $manager->persist($av);
+        $user->setAvatar($av);
         $user->setPassword($this->encoder->hashPassword($user,"Pass"));
         $manager->persist($user);
 
@@ -56,5 +67,13 @@ class UserFixtures extends Fixture
 
         $manager->flush();
     } 
-
+    /**
+     * @return list<class-string<FixtureInterface>>
+     */
+    public function getDependencies(): array
+    {
+        return [
+            ChevalFixtures::class
+        ];
+    }
 }

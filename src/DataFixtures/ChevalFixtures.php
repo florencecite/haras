@@ -5,8 +5,9 @@ namespace App\DataFixtures;
 use App\Entity\Cheval;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class ChevalFixtures extends Fixture
+class ChevalFixtures extends Fixture  /*implements DependentFixtureInterface*/
 {
 
 // ====================================================== //
@@ -24,13 +25,17 @@ public const PURSDAY = "pursday";
         $cheval->setLieu('Pre-abri');
         $cheval->setAlimentation('rien');
         $cheval->setVeto('Dr Proust');
-        $cheval->setUser($this->getReference(UserFixtures::FLORENCE));
+        $cheval->setImageName('C5.jpg');
+    //    $cheval->setUser($this->getReference(UserFixtures::FLORENCE));
         $manager->persist($cheval);
         $this->setReference(self::PURSDAY, $cheval);
-
-
-
-
         $manager->flush();
     }
+    /*
+    public function getDependencies()
+    {
+        return [
+            UserFixtures::class,
+        ];
+    }*/
 }

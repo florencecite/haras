@@ -26,6 +26,7 @@ class CavalierFixtures extends Fixture implements DependentFixtureInterface
         $cavalier->setPrenom('Florence');
         $cavalier->setMail("florence@florence.com");
         $cavalier->setNiveau("confirmé");
+        $cavalier->setImageName("floflo.jpg");
         $cavalier->setUser($this->getReference(UserFixtures::FLORENCE));
         $manager->persist($cavalier);
 
@@ -34,6 +35,7 @@ class CavalierFixtures extends Fixture implements DependentFixtureInterface
         $cavalier->setPrenom('Martine');
         $cavalier->setMail("martine@martine.com");
         $cavalier->setNiveau("confirmé");
+        $cavalier->setImageName("femme2.jpg");
         $cavalier->setUser($this->getReference(UserFixtures::FLORENCE));
         $manager->persist($cavalier);
 
@@ -42,6 +44,7 @@ class CavalierFixtures extends Fixture implements DependentFixtureInterface
         $cavalier->setPrenom('Daniel');
         $cavalier->setMail("daniel@daniel.com");
         $cavalier->setNiveau("confirmé");
+        $cavalier->setImageName("homme2.jpg");
         $cavalier->setUser($this->getReference(UserFixtures::FLORENCE));
         $manager->persist($cavalier);
 
