@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Haras de la Cense - Modifer mes INFORMATIONS{% endblock %}
+{% block title %}Haras de la Cense - Modifer mes Informations{% endblock %}
 
 {% block body %}
-    <h1>Modifier mes informations</h1>
+    <h1 class="ptitre">Modifier mes informations</h1>
     {{ include('user/_form.html.twig', {'button_label': 'Valider les changements'} )}}
     <hr>
-    <a href="{{ path('app_user') }}" class="btn btn-dark">Retour à l'espace membre</a>
+    <a href="{{ path('app_user') }}" class="btn btn-dark">Retour au Profil</a>
     <a href="{{ path('app_front_cheval_index') }}" class="btn btn-dark">Gérer mes chevaux</a>
     <a href="{{ path('app_front_cavalier_index') }}" class="btn btn-dark">Gérer mes cavaliers</a>
 {% endblock %}

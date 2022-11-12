@@ -45,7 +45,10 @@ html{
     text-align: center;
     font-size: 5vw;
 }
-
+.ptitre {
+    text-align: left;
+    font-size: 5vw;
+}
 .nav-link {
     font-size: 2vw;
 }

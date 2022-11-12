@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cavalierx{% endblock %}
+{% block title %}Haras de la Cense - Les Cavaliers{% endblock %}
 
 {% block body %}
-    <h1>Cavaliers</h1>
+    <h1 class="ptitre">Mes Cavaliers</h1>
 
     <table class="table">
         <thead>
@@ -46,7 +46,7 @@
         </tbody>
     </table>
  <a href="{{ path('app_front_cavalier_new') }}" class="btn btn-dark">Nouveau</a>
-<a href="{{ path('app_user') }}" class="btn btn-dark">Retour à l'espace Membre</a>
+<a href="{{ path('app_user') }}" class="btn btn-dark">Retour au Profil</a>
 <hr>
    
 {% endblock %}
