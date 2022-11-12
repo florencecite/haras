@@ -6,6 +6,7 @@ use App\Entity\Cavalier;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class Cavalier1Type extends AbstractType
@@ -16,7 +17,8 @@ class Cavalier1Type extends AbstractType
             ->add('nom',TextType::class, ["label" => "Nom :"])
             ->add('prenom',TextType::class, ["label" => "Prenom :"])
             ->add('mail',TextType::class, ["label" => "Mail :"])
-            ->add('imageName')
+            ->add('imageFile', FileType ::class,["label" =>"Image :", "required"=>false])
+            ->remove('imageName')
             // ->add('updatedAt')
             ->add('niveau')
             // ->add('chevaux')

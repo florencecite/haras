@@ -1,15 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CavalierController!
+{% block title %}Haras de la Cense - Cavaliers
 {% endblock %}
 
 {% block body %}
-<div style="min-height: 100vh">
 
+<div style="min-height: 100vh">
+		<h1 class="py-3 ps-3">Cavaliers</h1>
+		<div class="d-flex flex-wrap justify-content-center">
+
+			{% for cavalier in cavaliers %}
+				<div class="col-12 col-md-3 col-lg-2 px-3  d-flex">
+					<div class="card">
+						<img src="{{asset('images/cavalier/' ~ cavalier.imageName)}}"  class="card-img-top" alt="...">
+						<div class="card-body d-flex flex-wrap">
+							<h5 class="card-title text-center w-100">{{cavalier.prenom}}
+								{{cavalier.nom}}</h5>
+							<a href="{{ path('app_cavalier_show', {'id': cavalier.id}) }}" class="btn btn-dark align-self-end mx-auto">Voir fiche</a>
+						</div>
+					</div>
+				</div>
+
+
+			{% else %}
+			
+
+				<p>Aucun cavalier</p>
+
+			{% endfor %}
+			{# Fin de la boucle #}
+		</div>
+	</div>
+
+{# <div style="min-height: 100vh">
+
+<H1 class="py-3 ps-3">Cavalier</H1>
 <table class="table table-striped">
-		<tr>
-			<th>Cavalier</th>
-		</tr>
+		
 		{% for cavalier in cavaliers %}
 		
 			<tr>
@@ -26,6 +53,6 @@
 	</table>
 
 </div>
-	
+	#}
 
 {% endblock %}

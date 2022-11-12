@@ -25,20 +25,20 @@
 				<tr>
 					<td>
 					<a href="{{path('app_accueil')}}">
-					<img src="{{ asset('images/evenement/Logoharascense3.jpg') }}" alt="logo haras de la cense"  height="100px">
+					<img src="{{ asset('images/evenement/Logoharascense3.jpg') }}" alt="logo haras de la cense"  height="100px" class="pb-2 ps-3 my-3">
 					</a>
 					</td>
-					<br><br>
+				
 					<td>
 						<div class="logout">
 						{% if app.user %}
-							<a href="{{path('app_logout')}}" class="logout">Deconnection</a>
-							{% else %}
-							<a href="{{path('app_login')}}" class="logout">Connection</a>
-							{% endif %}
+							<a href="{{path('app_logout')}}" class="logout">Déconnexion</a>
+						{% else %}
+							<a href="{{path('app_login')}}" class="logout">Connexion</a>
+						{% endif %}
 						</div>
-						<h1 class="intro">Le Site des Propriétaires du Haras de la Cense - Bretigny </h1>
-	<br><br>			
+						<h1 class="intro" class=" mt-5 pb-3">Le Site des Propriétaires du Haras de la Cense - Bretigny </h1>
+			
 					</td>
 				</tr>
 			</table>
@@ -60,7 +60,7 @@
 						{% endif %}
 						
 							<li class="nav-item">
-								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_front_user_index')}}">Propriétaires</a> 
+								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_proprietaire_index')}}">Propriétaires</a> 
 							</li>
 							<li class="nav-item">
 								<a class="nav-link "  style="font-size: 24px;" href="{{ path('app_cavalier')}}">Cavaliers</a>
@@ -76,17 +76,17 @@
 								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_service')}}">Services</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_covoit')}}">Co-Voiturage</a>
+								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_covoit')}}">Co-voiturage</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" style="font-size: 24px;" href="{{ path('workingforum_forum')}}">Forum</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_evenement')}}">Evenements</a>
+								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_evenement')}}">Evènements</a>
 							</li>
 							{% endif %}
 							<li class="nav-item">
-								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_reglement')}}">Reglement</a>
+								<a class="nav-link" style="font-size: 24px;" href="{{ path('app_reglement')}}">Règlement</a>
 							</li>
 						</ul>
 						{# <form class="d-flex">
@@ -124,6 +124,7 @@
 				</div>
 		</nav>
 	</footer>
+	
 
 
 	<!-- JavaScript Bundle with Popper 
@@ -131,6 +132,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="{{asset('js/app.js')}}"></script>
 	<script src="{{asset('js/lightbox.min.js')}}"></script>
+	<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 	{% block javascripts %}
 		{{ encore_entry_script_tags('app') }}
 	{% endblock %}
