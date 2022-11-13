@@ -137,7 +137,25 @@
 	{% block javascripts %}
 		{{ encore_entry_script_tags('app') }}
 	{% endblock %}
-
-
+	        <script type="text/javascript">
+    //<![CDATA[
+    // get all "tiptext" anchors
+    const tips= document.getElementsByClassName("xtiptext");
+    for (tip of tips){
+        // retrieve the iframe
+        const dec= tip.children[0];
+        // Show the iframe on mouse over
+        tip.addEventListener('mouseover', function() {
+            dec.style.display = "block";
+            // lazy loading: change the src the first time the iframe is shown.
+            if (dec.src == "") dec.src=tip.href;
+        });
+        // hide the iframe on mouse out
+        tip.addEventListener('mouseout', function() {
+            dec.style.display = "none";
+        });
+    }
+    //]]>
+    </script>
 	</body>
 </html>

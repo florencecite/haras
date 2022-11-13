@@ -70,6 +70,22 @@ html{
     --bs-nav-link-padding-x: 1rem;
     --bs-nav-link-padding-y: 0.5rem;
 } */
+
+.tiptext {
+    color:#069; 
+    cursor:pointer;
+}
+
+.tipdescription {
+    display:none;
+    position:absolute;
+    border:solid #000;
+    left: 100px;
+    top: 0px;
+    min-width: 500px;
+    min-height: 500px;
+}
+
 .logout {
     text-align: end;
     color : yellowgreen;

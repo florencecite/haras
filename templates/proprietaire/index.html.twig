@@ -14,7 +14,11 @@
 						<div class="card-body d-flex flex-wrap">
 							<h5 class="card-title text-center w-100">{{proprietaire.prenom}}
 								{{proprietaire.nom}}</h5>
-							<a href="{{ path('app_proprietaire_show', {'id': proprietaire.id}) }}" class="btn btn-dark align-self-end mx-auto">Voir fiche</a>
+							<a href="{{ path('app_proprietaire_show', {'id': proprietaire.id}) }}" class="tiptext btn btn-dark align-self-end mx-auto">
+							Voir fiche
+        					<iframe class="tipdescription" title="{{proprietaire.prenom}} {{proprietaire.nom}}"></iframe>
+        					</a>
+        					</td></tr>
 						</div>
 					</div>
 				</div>

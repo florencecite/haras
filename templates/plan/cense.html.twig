@@ -6,26 +6,18 @@
 <div class="example-wrapper">
     <h1 class="ptitre" >Le Haras de la Cense</h1>
 <style>
- /* 
+.bigmap {
+  height: 50vh;
+  width: 100%;
+}/* 
  basé sur https://developers.google.com/maps/documentation/javascript/adding-a-google-map
  projet: https://console.cloud.google.com/apis/credentials?project=floharascense 
  key: AIzaSyAKyeL4db_5Wn2iCoZNuCUrALk1djKrzXA 
- */
-#foret {
-  height: 50vh;
-  width: 100%;
 
-}
-</style>
-<div class="example-wrapper">
-    <div id="foret">
-    </div>
-</div>
- 
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKyeL4db_5Wn2iCoZNuCUrALk1djKrzXA&callback=initMap&v=weekly"
-    defer>
-</script>
+/// replace iframe by
+<div id="foret" class="bigmap"> </div>
+// Add this script
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKyeL4db_5Wn2iCoZNuCUrALk1djKrzXA&callback=initMap&v=weekly" defer></script>
 <script>
 // Initialize and add the map
 function initMap() {
@@ -34,10 +26,24 @@ function initMap() {
   // H2W4+RF Rochefort-en-Yvelines 
   // The map, centered at La Cense
   const map = new google.maps.Map(document.getElementById("foret"), {
-    zoom: 14,
+    zoom: 15,
     center: cense,
   });
-  // The marker, positioned at Uluru
+  const coordinates = [
+    { lat: 48.597, lng: 2.006 },
+    { lat: 48.597, lng: 2.007 },
+    { lat: 48.598, lng: 2.007 },
+    { lat: 48.598, lng: 2.006 },
+  ];
+  const poly = new google.maps.Polygon({
+    path: coordinates,
+    geodesic: true,
+    strokeColor: "#FF0000",
+    strokeOpacity: 1.0,
+    strokeWeight: 2,
+  });
+  poly.setMap(map);
+  //The marker
   const marker = new google.maps.Marker({
     position: cense,
     map: map,
@@ -45,4 +51,10 @@ function initMap() {
 }
 window.initMap = initMap;
 </script>
+*/
+</style>
+<div class="example-wrapper">
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5276.972008255647!2d2.008878520566936!3d48.60053971174758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sfr!4v1668335243551!5m2!1sen!2sfr" 
+class="bigmap" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
 {% endblock %}
