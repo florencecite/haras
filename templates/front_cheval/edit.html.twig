@@ -17,11 +17,15 @@
 {% block javascripts %}
 <script>
 {# AJOUT DE SOINS  #}
+{# etape 2 : on déclare la fonction déclenché au click, #}
 const addFormToCollection = (e) => {
+  //on déclare une constante dans laquelle on récupère l ul associé au bouton par son attribut data-collection-holder-class
+  // e correspond à l'èvenement (click) currentTarget correspond à l'objet HTML ayant déclenché l'evenement
   const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
 
+// on déclare une constante dans laquelle on crée un objet HTML <li> 
   const item = document.createElement('li');
-
+//dans la <li> on vient mettre le code HTML , du formulaire d'un évenement de santé  que l'on récupère dans l'attribut data-prototype de l'<ul> (collectionHolder)
   item.innerHTML = collectionHolder
     .dataset
     .prototype
@@ -30,13 +34,14 @@ const addFormToCollection = (e) => {
       collectionHolder.dataset.index
     );
     addTagFormDeleteLink(item);
+    // on rajoute la <li> dans l <ul> , dans le DOM
   collectionHolder.appendChild(item);
 
   collectionHolder.dataset.index++;
 };
 
 
-
+{# etape 1 : on récupère tous les objets HTML ayant la class add_item_link , et on leur rajoute un écouteur d'évènement pour le click qui déclenche la fonction addFormToCollection #}
 document
   .querySelectorAll('.add_item_link')
   .forEach(btn => {
