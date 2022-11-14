@@ -1,11 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Cheval{% endblock %}
+{% block title %}Haras de la Cense - Nouveau Cheval{% endblock %}
 
 {% block body %}
 <a href="{{ path('app_front_cheval_index', {'person_id': user.id}) }}" class="btn btn-dark">Retour à la liste</a>   
-    <h1>Nouveau</h1>
-
+    <h1 class="ptitre">Nouveau Cheval</h1>
     {{ include('front_cheval/_form.html.twig') }}
 
     

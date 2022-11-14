@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Haras de la Cense - Les Messages{% endblock %}
+
+{% block body %}
+    <iframe src="{{ path('workingforum_subforum', {'forum': 'proprietaires', 'subforum' : 'co-voiturage'}) }}" style="width:100%;min-height:50vh;"></iframe>
+{% endblock %}

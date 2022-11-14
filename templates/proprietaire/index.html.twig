@@ -1,11 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Proprietaires
-{% endblock %}
+{% block title %}Haras de la Cense - Les Propriétaires {% endblock %}
 
 {% block body %}
-	<div style="min-height: 100vh">
-		<h1 class="py-3 ps-3">Propriétaires</h1>
+	<div style="min-height: 50vh">
+		<h1 class="ptitre">Les Propriétaires</h1>
 		<div class="d-flex flex-wrap justify-content-center">
 
 			{% for proprietaire in proprietaires %}
@@ -15,7 +14,11 @@
 						<div class="card-body d-flex flex-wrap">
 							<h5 class="card-title text-center w-100">{{proprietaire.prenom}}
 								{{proprietaire.nom}}</h5>
-							<a href="{{ path('app_proprietaire_show', {'id': proprietaire.id}) }}" class="btn btn-dark align-self-end mx-auto">Voir fiche</a>
+							<a href="{{ path('app_proprietaire_show', {'id': proprietaire.id}) }}" class="tiptext btn btn-dark align-self-end mx-auto">
+							Voir fiche
+        					<iframe class="tipdescription" title="{{proprietaire.prenom}} {{proprietaire.nom}}"></iframe>
+        					</a>
+        					</td></tr>
 						</div>
 					</div>
 				</div>

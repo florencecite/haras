@@ -9,25 +9,25 @@ use Symfony\Component\Routing\Annotation\Route;
 class MessageController extends AbstractController
 {
     /**
-     * @Route("/message", name="app_forum")
+     * @Route("/red-forum", name="app_forum")
      */
     public function forum(): Response
     {
-        return $this->redirectToRoute('workingforum_forum');
-        /*
-        return $this->render('message/index.html.twig', [
+        // return $this->redirectToRoute('workingforum_forum');
+        /* Faire la meme chose dans un twig qui inclut une iframe */
+        return $this->render('message/forum.html.twig', [
             'controller_name' => 'MessageController',
-        ]);*/
+        ]);
     }
     /**
      * @Route("/red-covoit", name="app_covoit")
      */
     public function covoiturage(): Response
     {
-        return $this->redirectToRoute('workingforum_subforum', ['forum' =>'proprietaires','subforum' =>'co-voiturage']);
-        /*
-        return $this->render('message/index.html.twig', [
+        //return $this->redirectToRoute('workingforum_subforum', ['forum' =>'proprietaires','subforum' =>'co-voiturage']);
+        /* Faire la meme chose dans un twig qui inclut une iframe */
+        return $this->render('message/covoit.html.twig', [
             'controller_name' => 'MessageController',
-        ]);*/
+        ]);
     }
 }

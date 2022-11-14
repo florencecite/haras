@@ -21,16 +21,6 @@ html{
     bottom: 58px;
     margin-bottom:0;
 }
-/* .container-fluid {
-display: flex;
-flex-direction: column;
-justify-content:flex-end;
-align-items: baseline;
-color: purple;
-font-size: medium;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-} */
 
 .soins li{
     padding:10px;
@@ -40,7 +30,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .card-img-top {
-    max-width:100px;
+   max-width:100px;
    max-height:100px;
    min-width:100px;
    min-height:100px;
@@ -53,31 +43,55 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 .intro {
     text-align: center;
-    font-size: 50px;
+    font-size: 3vw;
 }
-/*.nav-link {
-    color : greenyellow;
-    font-size: 20px;
-}*/
+.ptitre {
+    text-align: left;
+    font-size: 3vw;
+}
+.nav-link {
+    font-size: 1.5vw;
+}
+.logo {
+    height: 10vw;
+}
+
 .navbar {
-    --bs-navbar-padding-x: 0.5rem;
-    --bs-navbar-padding-y: 0.5rem;
+/*    --bs-navbar-padding-x: 0.5rem;
+    --bs-navbar-padding-y: 0.5rem;*/
     --bs-navbar-color: greenyellow;
     --bs-navlink-color: green;
     --bs-navbar-hover-color: white;
     --bs-navbar-disabled-color: gray;
     --bs-navbar-active-color: white;
 }
+/*
 .navbar-nav {
     --bs-nav-link-padding-x: 1rem;
     --bs-nav-link-padding-y: 0.5rem;
+} */
+
+.tiptext {
+    color:#069; 
+    cursor:pointer;
 }
+
+.tipdescription {
+    display:none;
+    position:absolute;
+    border:solid #000;
+    left: 100px;
+    top: 0px;
+    min-width: 500px;
+    min-height: 500px;
+}
+
 .logout {
     text-align: end;
     color : yellowgreen;
-    font-size: 20px;
+    font-size: 2vw;
     margin: 5px;
-    padding-right: 10px;
+    padding-right: 5px;
 }
 .imageAcc {
     min-width: 100%;

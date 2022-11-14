@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cavalierx{% endblock %}
+{% block title %}Haras de la Cense - Les Cavaliers{% endblock %}
 
 {% block body %}
-    <h1>Cavaliers</h1>
+    <h1 class="ptitre">Mes Cavaliers</h1>
 
     <table class="table">
         <thead>
@@ -13,7 +13,6 @@
                 <th>Prenom</th>
                 <th>Mail</th>
                 <th>ImageName</th>
-                <th>UpdatedAt</th>
                 <th>Niveau</th>
                 <th>Actions</th>
             </tr>
@@ -25,8 +24,15 @@
                 <td>{{ cavalier.nom }}</td>
                 <td>{{ cavalier.prenom }}</td>
                 <td>{{ cavalier.mail }}</td>
-                <td>{{ cavalier.imageName }}</td>
-                <td>{{ cavalier.updatedAt ? cavalier.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td> 
+                {% if cavalier.imageName is defined and cavalier.imageName is not null %}
+        	    <a href="{{ asset ('images/cavalier/' ~ cavalier.imageName) }}" data-lightbox="{{cavalier.imageName}}">
+				    <img src="{{ asset('images/cavalier/'~ cavalier.imageName)}}" alt="" class="img-list">
+        	    </a>
+		        {% else %}
+		        N/A
+		        {% endif %}
+                </td>
                 <td>{{ cavalier.niveau }}</td>
                 <td>
                     <a href="{{ path('app_front_cavalier_edit', {'id': cavalier.id} ) }}" class="btn btn-dark">Modifier</a>
@@ -40,7 +46,7 @@
         </tbody>
     </table>
  <a href="{{ path('app_front_cavalier_new') }}" class="btn btn-dark">Nouveau</a>
-<a href="{{ path('app_user') }}" class="btn btn-dark">Retour à l'espace Membre</a>
+<a href="{{ path('app_user') }}" class="btn btn-dark">Retour à l'Espace Membre</a>
 <hr>
    
 {% endblock %}
