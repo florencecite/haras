@@ -39,7 +39,7 @@ html{
    margin-top : auto;
 }
 
-* {
+h1,h2,h3 {
     color: black;
     font-family: 'Cinzel', serif;
 }

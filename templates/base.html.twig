@@ -4,76 +4,80 @@
 		<meta charset="UTF-8">
 
 		<title>
-			{% block title %}Haras de la Cense{% endblock %}
+			{% block title %}Haras de la Cense
+			{% endblock %}
 		</title>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		<link "https://bootswatch.com/5/lux/bootstrap.min.css">
 		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 		<!-- CSS only -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> 
-		{% block stylesheets %}
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> {% block stylesheets %}
 			{# {{ encore_entry_link_tags('app') }} #}
 		{% endblock %}
 		<link rel="stylesheet" href="{{asset ('css/lightbox.min.css')}}">
 		<link rel="stylesheet" href="{{asset ('css/frontend.css')}}">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
 	</head>
 	<body>
-			<table width="100%">
-				<tr>
-					<td>
+		<table width="100%">
+			<tr>
+				<td>
 					<a href="{{path('app_accueil')}}">
-					<img src="{{ asset('images/evenement/Logoharascense3.jpg') }}" alt="logo haras de la cense"  class="logo pb-2 ps-3 my-3">
+						<img src="{{ asset('images/evenement/Logoharascense3.jpg') }}" alt="logo haras de la cense" class="logo pb-2 ps-3 my-3">
 					</a>
-					</td>			
-					<td>
-						<div class="logout">
+				</td>
+				<td>
+					<div class="logout">
 						{% if app.user %}
 							<a href="{{path('app_logout')}}" class="logout">Déconnexion</a>
 						{% else %}
 							<a href="{{path('app_login')}}" class="logout">Connexion</a>
 						{% endif %}
-						</div>
-						<h1 class="intro  mt-5 pb-3">Le Site des Propriétaires du Haras de la Cense - Bretigny </h1>
-					</td>
-				</tr>
-			</table>
-			<nav class="navbar navbar-expand-sm navbar-dark bg-dark  container-fluid px-0">
-				<div class="container-fluid">
-					<nav class="navbar navbar-dark bg-dark">
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent">
+					</div>
+					<h1 class="intro  mt-5 pb-3">Le Site des Propriétaires du Haras de la Cense - Bretigny
+					</h1>
+				</td>
+			</tr>
+		</table>
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark  container-fluid px-0">
+			<div class="container-fluid">
+				<nav class="navbar navbar-dark bg-dark">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent">
 						<span class="navbar-toggler-icon"></span>
-						</button>
-					</nav>
-					<div class="collapse" id="navbarToggleExternalContent">
-						<div class="bg-dark p-4">
+					</button>
+				</nav>
+				<div class="collapse" id="navbarToggleExternalContent">
+					<div class="bg-dark p-4">
 						<h4 class="text-white">Collapsed content</h4>
 						<span class="text-muted">Toggleable via the navbar brand.</span>
-						</div>
 					</div>
-					<div class="collapse navbar-collapse" id="navbarColor01">
-						<ul class="navbar-nav me-auto">
+				</div>
+				<div class="collapse navbar-collapse" id="navbarColor01">
+					<ul class="navbar-nav me-auto">
 						{% if app.user %}
-						{% else %}
-							<li class="nav-item">
-								<a class="nav-link " href="{{ path('app_register')}}">Inscription</a>
-							</li>
+							{% else %}
+								<li class="nav-item">
+									<a class="nav-link " href="{{ path('app_register')}}">Inscription</a>
+								</li>
 						{% endif %}
 						{% if app.user %}
 							<li class="nav-item">
 								<a class="nav-link" href="{{ path('app_user')}}">Espace Membre</a>
 							</li>
 						{% endif %}
-						
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path('app_proprietaire_index')}}">Propriétaires</a> 
-							</li>
-							<li class="nav-item">
-								<a class="nav-link " href="{{ path('app_cavalier')}}">Cavaliers</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path('app_cheval')}}">Chevaux</a>
-							</li>
-							{% if app.user %}
+
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_proprietaire_index')}}">Propriétaires</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link " href="{{ path('app_cavalier')}}">Cavaliers</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_cheval')}}">Chevaux</a>
+						</li>
+						{% if app.user %}
 							<li class="nav-item">
 								<a class="nav-link" href="{{ path('app_ballade')}}">Ballades</a>
 							</li>
@@ -89,73 +93,68 @@
 							<li class="nav-item">
 								<a class="nav-link" href="{{ path('app_evenement')}}">Evènements</a>
 							</li>
-							{% endif %}
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path('app_reglement')}}">Règlement</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-	</div>
-	<div class="container-fluid">
-	{% block body %}{% endblock %}
-	{% block forum %}{% endblock %}
-	</div>	
-	<footer class= "container-fluid footer px-0" >
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid">
-				<div class="collapse navbar-collapse" id="navbarColor01">
-					<ul class="navbar-nav me-auto">
+						{% endif %}
 						<li class="nav-item">
-						<a class="nav-link active" href="#">
-							<span class="visually-hidden">(current)</span>
-						</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link" href="{{path('app_contact')}}">Contact</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link" href="{{path('app_cense')}}">Plan de la Cense</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link" href="{{path('app_foret')}}">Plan de la Forêt de Rambouillet</a>
+							<a class="nav-link" href="{{ path('app_reglement')}}">Règlement</a>
 						</li>
 					</ul>
 				</div>
+			</div>
 		</nav>
-	</footer>
-	
-
-
-	<!-- JavaScript Bundle with Popper 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="{{asset('js/app.js')}}"></script>
-	<script src="{{asset('js/lightbox.min.js')}}"></script>
-	<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-	{% block javascripts %}
-		{{ encore_entry_script_tags('app') }}
-	{% endblock %}
-	        <script type="text/javascript">
-    //<![CDATA[
-    // get all "tiptext" anchors
-    const tips= document.getElementsByClassName("xtiptext");
-    for (tip of tips){
-        // retrieve the iframe
-        const dec= tip.children[0];
-        // Show the iframe on mouse over
-        tip.addEventListener('mouseover', function() {
-            dec.style.display = "block";
-            // lazy loading: change the src the first time the iframe is shown.
-            if (dec.src == "") dec.src=tip.href;
-        });
-        // hide the iframe on mouse out
-        tip.addEventListener('mouseout', function() {
-            dec.style.display = "none";
-        });
-    }
-    //]]>
-    </script>
 	</body>
-</html>
+</html></div><div class="container-fluid"> {% block body %}{% endblock %}{% block forum %}{% endblock %}
+</div>
+<footer class="container-fluid footer px-0">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid">
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item">
+					<a class="nav-link active" href="#">
+						<span class="visually-hidden">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{path('app_contact')}}">Contact</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{path('app_cense')}}">Plan de la Cense</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{path('app_foret')}}">Plan de la Forêt de Rambouillet</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</footer>
+
+
+<!-- JavaScript Bundle with Popper 
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/lightbox.min.js')}}"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+{% block javascripts %}
+	{{ encore_entry_script_tags('app') }}
+{% endblock %}
+<script type="text/javascript">
+	// <![CDATA[
+// get all "tiptext" anchors
+const tips = document.getElementsByClassName("xtiptext");
+for (tip of tips) { // retrieve the iframe
+const dec = tip.children[0];
+// Show the iframe on mouse over
+tip.addEventListener('mouseover', function () {
+dec.style.display = "block";
+// lazy loading: change the src the first time the iframe is shown.
+if (dec.src == "") 
+dec.src = tip.href;
+
+});
+// hide the iframe on mouse out
+tip.addEventListener('mouseout', function () {
+dec.style.display = "none";
+});
+}
+</script></body></html>

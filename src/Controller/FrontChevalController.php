@@ -23,7 +23,7 @@ class FrontChevalController extends AbstractController
     {
         // $person_id=$userRepository->find( $this->getUser());
         return $this->render('front_cheval/index.html.twig', [
-             'chevals' => $this->getUser()->getCheval(),
+            'chevals' => $this->getUser()->getCheval(),
             //  'person_id' => $person_id,
         ]);
     }
