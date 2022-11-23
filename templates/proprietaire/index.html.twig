@@ -10,7 +10,9 @@
 			{% for proprietaire in proprietaires %}
 				<div class="col-12 col-md-3 col-lg-2 px-3  d-flex">
 					<div class="card">
+					 {% if proprietaire.avatar is not null %}
 						<img src="{{ asset('images/user/' ~ proprietaire.avatar.imageName)}}"  class="card-img-top pt-2"  "alt="...">
+					{% endif %}
 						<div class="card-body d-flex flex-wrap">
 							<h5 class="card-title text-center w-100">{{proprietaire.prenom}}
 								{{proprietaire.nom}}</h5>
